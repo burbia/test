@@ -1,0 +1,95 @@
+<div class="comp-body">
+<mat-toolbar class="toolbar" [class.mat-elevation-z4]="true" *ngIf="!isWidget">
+  <p>Layout configuration</p>
+</mat-toolbar>
+<div class="parent-container">
+  <div class="middle">
+    <h2 class="square-title">Layout Map</h2>
+    <div class="icon-container" *ngIf="!isWidget">
+      <mat-icon class="options-icon">more_vert</mat-icon>
+      <mat-icon class="print-icon">print</mat-icon>
+    </div>
+    <div class="square">
+      <mat-list>
+        <mat-list-item>
+          <button mat-mini-fab class="button-left"></button>
+          <mat-divider class="union-line"></mat-divider>
+          <button mat-mini-fab class="button-right"></button>
+        </mat-list-item>
+        <div class="example-container">
+          <mat-list-item>
+            <button mat-mini-fab class="point-left"></button>
+            <h4 class="list-header">Pre-analytics</h4><button mat-mini-fab class="point-right"></button>
+          </mat-list-item>
+          <mat-divider class="first-divider"></mat-divider>
+
+          <mat-list class="list">
+            <mat-list-item *ngFor="let pre of preanalytics">
+              <h3 matLine> <button class="instrument" mat-flat-button>
+
+                  <p *ngIf="!isWidget">
+                    <mat-icon>apps</mat-icon>
+                    {{pre.instrumentName}}
+                  </p>
+                  <p *ngIf="isWidget">
+
+                    {{pre.instrumentName}}
+                  </p>
+                </button> </h3>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <div class="example-container">
+          <mat-list-item>
+            <button mat-mini-fab class="point-left"></button>
+            <h4 class="list-header">Analytics</h4><button mat-mini-fab class="point-right"></button>
+          </mat-list-item>
+
+          <mat-divider class="first-divider"></mat-divider>
+
+          <mat-list class="list">
+            <mat-list-item *ngFor="let analytic of analytics">
+              <h3 matLine> <button class="instrument" mat-flat-button>
+                  <p *ngIf="!isWidget">
+                    <mat-icon>apps</mat-icon>
+                    {{analytic.instrumentName}}
+                  </p>
+                  <p *ngIf="isWidget">
+
+                    {{analytic.instrumentName}}
+                  </p>
+                </button> </h3>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <div class="example-container">
+          <mat-list-item>
+            <button mat-mini-fab class="point-left"></button>
+            <h4 class="list-header">Post-analytics</h4><button mat-mini-fab class="point-right"></button>
+          </mat-list-item>
+
+          <mat-divider class="first-divider"></mat-divider>
+
+          <mat-list class="list">
+            <mat-list-item *ngFor="let post of postanalytics">
+              <h3 matLine><button class="instrument" mat-flat-button>
+                  <p *ngIf="!isWidget">
+                    <mat-icon>apps</mat-icon>
+                    {{post.instrumentName}}
+                  </p>
+                  <p *ngIf="isWidget">
+
+                    {{post.instrumentName}}
+                  </p>
+                </button> </h3>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <p class="last-update">Last update: {{lastUpdate | date:'dd MMM yyyy'}}</p>
+      </mat-list>
+      <button mat-flat-button class="confirm-button" (click)="confirmLayout()" *ngIf="!isWidget">Confirm layout</button>
+  </div>
+    </div>
+    
+</div>
+</div>

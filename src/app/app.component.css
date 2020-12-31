@@ -1,0 +1,31 @@
+.app-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+    causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+    z-index: auto !important;
+  }
+  
+  .mat-sidenav-content {
+    min-width: 0;
+  }
+
+  #overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(255, 255, 255); /* Black background with opacity */
+    z-index: 1000000000000000; /* Specify a stack order in case you're using a different order for other elements */
+    color: #000000;
+  }
+
+  /* @media only screen and (max-width: 900px) {
+    #overlay {
+      display: block;
+    }
+  }
+   */

@@ -1,0 +1,78 @@
+<div class="header">
+  <div class="title">{{title | translate}}</div>
+    <div class="subtitle">{{'choose-event-from-list' | translate}}.</div>
+    <mat-select placeholder="Assign event" (selectionChange)="selectEvent(eventSelected)" [(ngModel)]="eventSelected"
+      panelClass="lpm-option">
+      <ng-container *ngFor="let event of availableEvents">
+        <mat-option [value]="event">
+          {{event.description | translate}}
+        </mat-option>
+      </ng-container>
+    </mat-select>
+</div>
+
+<mat-card class="select-event-card">
+  <mat-card-content>
+    <div class="title">
+      {{'select-instruments' | translate}}</div>
+    <div class="instruments-list" >
+      <div class="general-lab-header" *ngIf="shownPreAnalytics.length!==0 && shownAnalytics.length !== 0 && shownPostAnalytics.length !== 0 && shownUnknownInstruments.length !== 0">
+        <mat-checkbox color="primary" (change)="toggleAllLab($event);"
+            [indeterminate]="!allLabSelected() && (preAnalyticsSelected.length > 0 || analyticsSelected.length > 0 || postAnalyticsSelected.length > 0 || unknownInstrumentsSelected.length > 0)"
+            [checked]="allLabSelected && (preAnalyticsSelected.length > 0 || analyticsSelected.length > 0 || postAnalyticsSelected.length > 0 || unknownInstrumentsSelected.length > 0)">
+            {{'general-lab' | translate}}</mat-checkbox>
+      </div>
+      <div class="list-header" *ngIf="shownPreAnalytics.length!==0">
+        <mat-checkbox color="primary" (change)="selectZone($event, 'PRE-ANALYTIC');"
+          [indeterminate]="!allPreSelected()  && preAnalyticsSelected.length > 0"
+          [checked]="allPreSelected  && preAnalyticsSelected.length > 0">
+          {{'pre-analytics' | translate}}</mat-checkbox>
+      </div>
+      <mat-selection-list (selectionChange)="processEvent()" [(ngModel)]="preAnalyticsSelected">
+        <mat-list-option checkboxPosition="before" *ngFor="let pre of shownPreAnalytics" [value]="pre">
+          {{pre.instrumentName}}
+          <mat-divider></mat-divider>
+        </mat-list-option>
+      </mat-selection-list>
+      <div class="list-header" *ngIf="shownAnalytics.length!==0">
+        <mat-checkbox color="primary" (change)="selectZone($event, 'INSTRUMENT');"
+          [indeterminate]="!allAnalyticsSelected() && analyticsSelected.length > 0"
+          [checked]="allAnalyticsSelected() && analyticsSelected.length > 0">{{'analytics' | translate}}
+        </mat-checkbox>
+      </div>
+      <mat-selection-list (selectionChange)="processEvent()" [(ngModel)]="analyticsSelected">
+        <mat-list-option checkboxPosition="before" *ngFor="let analytic of shownAnalytics" [value]="analytic">
+          {{analytic.instrumentName}}
+          <mat-divider></mat-divider>
+        </mat-list-option>
+      </mat-selection-list>
+
+      <div class="list-header" *ngIf="shownPostAnalytics.length!==0">
+        <mat-checkbox color="primary" (change)="selectZone($event, 'POST-ANALYTIC');"
+          [indeterminate]="!allPostSelected() && postAnalyticsSelected.length > 0"
+          [checked]="allPostSelected() && postAnalyticsSelected.length > 0">
+          {{'post-analytics' | translate}}</mat-checkbox>
+      </div>
+      <mat-selection-list (selectionChange)="processEvent()" [(ngModel)]="postAnalyticsSelected">
+        <mat-list-option checkboxPosition="before" *ngFor="let post of shownPostAnalytics" [value]="post">
+          {{post.instrumentName}}
+          <mat-divider></mat-divider>
+        </mat-list-option>
+      </mat-selection-list>
+
+      <div class="list-header" *ngIf="shownUnknownInstruments.length!==0">
+        <mat-checkbox color="primary" (change)="selectZone($event, 'UNKNOWN');"
+          [indeterminate]="!allUnkownInstrumentsSelected() && unknownInstrumentsSelected.length > 0"
+          [checked]="allUnkownInstrumentsSelected() && unknownInstrumentsSelected.length > 0">
+          {{'others' | translate}}</mat-checkbox>
+      </div>
+      <mat-selection-list (selectionChange)="processEvent()" [(ngModel)]="unknownInstrumentsSelected">
+        <mat-list-option checkboxPosition="before" *ngFor="let unkownInstrument of shownUnknownInstruments" [value]="unkownInstrument">
+          {{unkownInstrument.instrumentName}}
+          <mat-divider></mat-divider>
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+
+  </mat-card-content>
+</mat-card>

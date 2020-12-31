@@ -1,0 +1,27 @@
+<h2 mat-dialog-title class="title">
+    <mat-icon class="info-icon">info_outline</mat-icon>
+    <h4>{{'new-dashboard' | translate}}</h4>
+</h2>
+
+<mat-dialog-content>
+
+    <div class="content"> {{'dashboard-name' | translate}} </div>
+    <form [formGroup]="dashboardTitleForm" (ngSubmit)="proceed()">
+        <input autofocus required #dashboardTitle id="dashboardTitle" formControlName="dashboardTitle" placeholder="Assign name"
+            [ngClass]="{'red-border-error': (titleForm.dashboardTitle.errors?.required || titleForm.dashboardTitle.errors?.minlength)
+            && (titleForm.dashboardTitle.dirty || titleForm.dashboardTitle.touched)}">
+        <div class="form-error">
+            <div *ngIf="titleForm.dashboardTitle.errors?.required && titleForm.dashboardTitle.touched">
+                {{'title-required' | translate}}.
+            </div>
+            <div *ngIf="titleForm.dashboardTitle.errors?.minlength">
+                {{'title-6-characters' | translate}}.
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="actions">
+    <button aria-labelledby="cancel" mat-button class="cancel" (click)="cancel()">{{'cancel' | translate}}</button>
+    <button aria-labelledby="save" mat-button [disabled]="!dashboardTitleForm.valid" class="back-blue" (click)="proceed()">{{'save' | translate}}</button>
+</mat-dialog-actions>

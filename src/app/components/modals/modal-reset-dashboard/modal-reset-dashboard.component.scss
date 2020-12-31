@@ -1,0 +1,163 @@
+.title {
+  color: #000000;
+  height: 61px;
+
+  .span-title {
+    position: relative;
+    left: 52px;
+    top: 22px;
+    font-size: 16px;
+    font-family: Roboto-Normal, Roboto;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+  }
+  .title-divider {
+    margin-top: 20px;
+  }
+}
+.mat-dialog-content {
+  overflow: hidden;
+}
+
+.mat-dialog-title {
+  margin: 0px;
+  display: block;
+}
+
+.actions {
+  padding-bottom: 32px;
+  margin-right: 16px;
+
+  .clear-button {
+    margin: 0px 0px 0px 16px;
+  }
+  .confirm-button {
+    margin: 0px 0px 0px 178px;
+    color: #fafafa;
+    background: #0066cc 0% 0% no-repeat padding-box;
+  }
+}
+
+.content {
+  color: #333333;
+  margin-left: 16px;
+  font-size: 16px;
+  font-weight: 500;
+
+  .manual-title {
+    font-size: 20;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    font-family: Roboto-Normal, Roboto;
+    margin: 17px 0px 17px 0px;
+  }
+  .manual-subtitle {
+    font-size: 16;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    font-family: Roboto-Normal, Roboto;
+  }
+
+  .manual-info {
+    margin: 2px 0px 2px 0px;
+  }
+
+  .info-icon {
+    color: #333333;
+    background-color: transparent;
+    opacity: 1;
+    font-size: 14px;
+    height: 24px;
+    width: 16px;
+  }
+
+  .manual-info-text {
+    font-size: 12;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    font-family: Roboto-Normal, Roboto;
+  }
+  .input-div {
+    display: flex;
+  }
+  .hour-minute-separator {
+    width: 4px;
+    height: 16px;
+    opacity: 1;
+    position: relative;
+    top: 21px;
+    left: 2px;
+    font-size: 28px;
+    color: #737373;
+  }
+  .content-divider {
+    margin: 0px 16px 0px 16px;
+  }
+}
+
+.back-blue {
+  width: 120px;
+  height: 36px;
+  color: #0066cc;
+  border: 1px solid var(--unnamed-color-bababa);
+  background: #fafafa 0% 0% no-repeat padding-box;
+  border: 1px solid #bababa;
+  border-radius: 4px;
+  opacity: 1;
+}
+
+::ng-deep .mat-button[disabled] {
+  color: #8a8a8a !important;
+  background-color: #efefef !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .confirm-button[disabled] {
+  border: none;
+}
+
+::ng-deep .mat-dialog-container {
+  overflow: hidden;
+}
+
+.close-icon {
+  cursor: pointer;
+  position: absolute;
+  margin: 26px 0px 20px 16px;
+  color: #bababa;
+}
+
+.error-message-form {
+  color: #cc0033;
+  font-weight: 500;
+}
+
+.red-border-error {
+  border: 2px solid #cc0033 !important;
+}
+
+.form-error {
+  font-weight: 500;
+  color: #cc0033;
+  position: absolute;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+input {
+  margin-left: 8px;
+  display: block;
+  border: none;
+  background-color: #efefef;
+  border-radius: 4px;
+  height: 48px;
+  width: 68px;
+  font-size: 14px;
+  color: #737373;
+  padding-left: 16px;
+  margin-top: 12px;
+}

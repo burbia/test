@@ -1,0 +1,674 @@
+<div [ngClass]="showPlug2 ? 'background-2' : 'background'" #background></div>
+<div [ngClass]="showPlug2 ? 'progress-2' : 'progress'" #progress></div>
+
+<div class="gridster-item-content change-title">
+  <form [formGroup]="widgetTitleForm">
+    <input
+      required
+      id="inputTitle"
+      formControlName="inputTitle"
+      *ngIf="editTitle"
+      autofocus
+      (keyup.enter)="editTitle = false; updateTitle()"
+      #inputTitle
+      [ngClass]="{
+        'red-border-error':
+          titleForm.inputTitle.errors?.required && (titleForm.inputTitle.dirty || titleForm.inputTitle.touched)
+      }"
+    />
+    <mat-icon *ngIf="editTitle" (click)="editTitle = false">highlight_off</mat-icon>
+  </form>
+</div>
+
+<div [ngClass]="{ 'cs-widget-2': showPlug2, 'cs-widget': !showPlug2 }" *ngIf="showPlug">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 158">
+    <g id="Layer_2" data-name="Layer 2">
+      <g id="Layer_1-2" data-name="Layer 1">
+        <path
+          class="fill-white"
+          d="M112.09,54.62a46.38,46.38,0,0,1-32.87,79.1H79.1A46.36,46.36,0,0,1,32.83,87.34v-.12A46.42,46.42,0,0,1,79.18,41h.15A46,46,0,0,1,112.09,54.62Z"
+        />
+        <path
+          class="fill-white"
+          d="M154,0H4A4,4,0,0,0,0,4V154a4,4,0,0,0,4,4H154a4,4,0,0,0,4-4V4A4,4,0,0,0,154,0ZM115.46,123.76a51.06,51.06,0,0,1-36.24,15h-.13A51.39,51.39,0,0,1,79.15,36h.2a51.39,51.39,0,0,1,36.11,87.81Z"
+        />
+        <g
+          id="Lab_floor_1"
+          data-name="Lab floor 1"
+          class="cls-4"
+          *ngIf="!editTitle && configuration"
+          (click)="editTitle = true; focusInput()"
+        >
+          <text class="title-text" transform="translate(8 23)">
+            {{ configuration.title.length > 10 ? (configuration.title | slice: 0:10) + '...' : configuration.title }}
+          </text>
+        </g>
+        <g id="Group_28773" data-name="Group 28773">
+          <path
+            class="fill-white"
+            d="M125.6,87.45a46.38,46.38,0,0,1-46.38,46.27H79.1A46.36,46.36,0,0,1,32.83,87.34v-.12A46.42,46.42,0,0,1,79.18,41h.15a46.4,46.4,0,0,1,46.27,46.5Z"
+          />
+          <g *ngIf="statusCNS === 'WAITING'" transform="translate(63 71)">
+            <svg viewBox="0 0 250 250" preserveAspectRatio="xMidYMid meet">
+              <path
+                class="fill-grey"
+                d="M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 25 25"
+                  to="360 25 25"
+                  dur="1.5s"
+                  repeatCount="indefinite"
+                />
+              </path>
+            </svg>
+          </g>
+        </g>
+        <g id="_2.064.3_Disconnected" data-name=" 2.064.3 Disconnected">
+          <g id="Group_28780" data-name="Group 28780" *ngIf="statusCNS === 'DISCONNECTED'" transform="translate(79 87)">
+            <ng-container *ngIf="hasItemsWithAlarmOn; then template1; else template2"></ng-container>
+            <ng-template #template1>
+              <g class="pulse red">
+                <defs>
+                  <style>
+                    .pulse-circle {
+                      fill: url(#cns-Gradient);
+                    }
+                  </style>
+                  <radialGradient id="cns-Gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+                    <stop offset="0" stop-color="#c03" stop-opacity="0" />
+                    <stop offset="1" stop-color="#c03" stop-opacity="0.561" />
+                  </radialGradient>
+                </defs>
+                <circle id="b" cx="0" cy="0" r="45" class="pulse-circle" opacity="0.5"></circle>
+                <path
+                  id="Path_38666"
+                  data-name="Path 38666"
+                  class="fill-red"
+                  transform="translate(-17 -15)"
+                  d="M2,27.11H30.888V21.333H2Zm2.889-4.333H7.778v2.889H4.889ZM2,4V9.778H30.888V4ZM7.778,8.333H4.889V5.444H7.778ZM2,18.444H30.888V12.666H2Zm2.889-4.333H7.778V17H4.889Z"
+                />
+              </g>
+            </ng-template>
+            <ng-template #template2>
+              <path
+                id="Path_38666"
+                data-name="Path 38666"
+                class="fill-red"
+                transform="translate(-17 -15)"
+                d="M2,27.11H30.888V21.333H2Zm2.889-4.333H7.778v2.889H4.889ZM2,4V9.778H30.888V4ZM7.778,8.333H4.889V5.444H7.778ZM2,18.444H30.888V12.666H2Zm2.889-4.333H7.778V17H4.889Z"
+              />
+            </ng-template>
+          </g>
+          <g id="Group_28780" data-name="Group 28780" *ngIf="statusCNS === 'CONNECTED'">
+            <path
+              id="Path_38666"
+              data-name="Path 38666"
+              class="fill-green"
+              d="M2,27.11H30.888V21.333H2Zm2.889-4.333H7.778v2.889H4.889ZM2,4V9.778H30.888V4ZM7.778,8.333H4.889V5.444H7.778ZM2,18.444H30.888V12.666H2Zm2.889-4.333H7.778V17H4.889Z"
+              transform="translate(62.5 72)"
+            />
+          </g>
+          <rect
+            id="Rectangle_7185"
+            data-name="Rectangle 7185"
+            class="fill-none"
+            x="47.07"
+            y="58.28"
+            width="62.15"
+            height="62.15"
+          />
+        </g>
+        <g id="Group_41286" data-name="Group 41286">
+          <g id="Rectangle_10366-2" data-name="Rectangle 10366-2">
+            <g *ngIf="statusCNS === 'DISCONNECTED'">
+              <rect
+                id="Rectangle_10366"
+                data-name="Rectangle 10366"
+                transform="translate(32 126)"
+                rx="12"
+                class="rectangle && fill-red"
+                width="94"
+              />
+            </g>
+            <g *ngIf="statusCNS === 'WAITING'">
+              <rect
+                id="Rectangle_10366"
+                data-name="Rectangle 10366"
+                transform="translate(38 126)"
+                rx="12"
+                class="rectangle && fill-grey"
+                width="89"
+              />
+              <text class="host-count && fill-white" transform="translate(78 142)" *ngIf="configuration">
+                <tspan x="-28" y="0">Loading…</tspan>
+              </text>
+            </g>
+            <g *ngIf="statusCNS === 'CONNECTED'">
+              <rect
+                id="Rectangle_10366"
+                data-name="Rectangle 10366"
+                width="69"
+                rx="12"
+                transform="translate(45 126)"
+                class="rectangle && fill-green"
+              />
+            </g>
+          </g>
+          <g id="_7_10" data-name=" 7 10" class="cls-4">
+            <g id="Group_28780" data-name="Group 28780" *ngIf="statusCNS === 'CONNECTED'">
+              <path class="fill-white" d="M9,7H6L4,10.5H1v3H4L6,17H9V7Z" transform="translate(55 126)" />
+              <path class="fill-white" d="M20,10.5,18,7H15V17h3l2-3.5h3v-3Z" transform="translate(50 126)" />
+              <rect class="fill-none" width="24" height="24" transform="translate(55 126)" />
+            </g>
+            <g id="Group_28780" data-name="Group 28780" *ngIf="statusCNS === 'DISCONNECTED'">
+              <path
+                class="fill-white"
+                d="M8.966,7H5.979L3.987,10.485H1v2.987H3.987l1.992,3.485H8.966V14.966h2.987V12.975H8.966V10.983h2.987V8.992H8.966Z"
+                transform="translate(40 126)"
+              />
+              <path
+                class="fill-white"
+                d="M19.979,10.485,17.987,7H15v9.958h2.987l1.992-3.485h2.987V10.485Z"
+                transform="translate(40 126)"
+              />
+              <rect class="fill-none" width="24" height="24" transform="translate(40 125)" />
+            </g>
+            <text class="host-count && fill-white" transform="translate(78 142)" *ngIf="configuration">
+              <tspan x="-10" y="0" *ngIf="statusCNS === 'DISCONNECTED'">{{ allHosts.length | number: '2.0' }}/</tspan>
+              <tspan *ngIf="statusCNS === 'CONNECTED' || statusCNS === 'DISCONNECTED'">
+                {{ configuration.hosts.split(',').length | number: '2.0' }}
+              </tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<div class="host-list-2" *ngIf="showPlug2 && statusCNS === 'DISCONNECTED'">
+  <svg viewBox="0 0 160 18" preserveAspectRatio="xMidYMid meet">
+    <text x="0" y="15" class="connection-text">
+      {{ 'disconnected-units' | translate }}
+    </text>
+  </svg>
+  <mat-grid-list cols="1" rowHeight="5:1">
+    <div *ngFor="let host of disconnectedHost; odd as isOdd">
+      <mat-grid-tile>
+        <div class="item-container" [class.odd-item]="isOdd">
+          <svg viewBox="0 0 160 34" preserveAspectRatio="xMidYMid meet">
+            <text x="4" y="22" class="host-connection-name">
+              {{ host.name }}
+            </text>
+          </svg>
+        </div>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>
+
+<div *ngIf="oneXVersion" class="title-2">
+  <svg viewBox="0 0 160 24" preserveAspectRatio="xMidYMid meet">
+    <text x="0" y="15" class="title-text" *ngIf="!editTitle && configuration" (click)="editTitle = true; focusInput()">
+      {{ configuration.title.length > 10 ? (configuration.title | slice: 0:10) + '...' : configuration.title }}
+    </text>
+  </svg>
+  <div *ngIf="statusCNS === 'DISCONNECTED' || statusCNS === 'WAITING'">
+    <svg viewBox="0 0 160 24" preserveAspectRatio="xMidYMid meet">
+      <g id="Group_41341" data-name="Group 41341">
+        <g *ngIf="statusCNS === 'WAITING'">
+          <rect id="Rectangle_10366" data-name="Rectangle 10366" class="rectangle && fill-grey" rx="12" width="89" />
+          <text id="_10_20" data-name="10/20" class="host-count && fill-white">
+            <tspan x="12" y="18">Loading…</tspan>
+          </text>
+        </g>
+        <g *ngIf="statusCNS === 'DISCONNECTED'">
+          <g *ngIf="allHostsWaiting.length > 0">
+            <rect
+              id="Rectangle_10366"
+              data-name="Rectangle 10366"
+              class="rectangle-blue"
+              rx="12"
+              transform="translate(1 1)"
+              width="138"
+            />
+            <g transform="translate(15 7)">
+              <svg width="10px" height="10px" viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet">
+                <path
+                  class="fill-blue"
+                  d="M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z"
+                >
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 25 25"
+                    to="360 25 25"
+                    dur="1.5s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+              </svg>
+              <text id="_10_20" data-name="10/20" transform="translate(15 10)" class="host-count && fill-blue">
+                {{ allHostsWaiting.length | number: '2.0' }}
+              </text>
+            </g>
+          </g>
+          <g transform="translate(50 0)">
+            <rect id="Rectangle_10366" data-name="Rectangle 10366" class="rectangle && fill-red" rx="12" width="89" />
+            <path
+              class="fill-white"
+              transform="translate(8 4)"
+              d="M2,14.667H15.333V12H2Zm1.333-2H4.667V14H3.333ZM2,4V6.667H15.333V4ZM4.667,6H3.333V4.667H4.667ZM2,10.667H15.333V8H2Zm1.333-2H4.667V10H3.333Z"
+            />
+            <rect class="fill-none" width="24" height="24" transform="translate(4 0)" />
+            <text id="_10_20" data-name="10/20" class="host-count && fill-white">
+              <tspan x="33" y="18" *ngIf="statusCNS === 'DISCONNECTED'">
+                {{ allHosts.length | number: '2.0' }}/
+                {{ configuration.hosts.split(',').length | number: '2.0' }}
+              </tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div *ngIf="statusCNS === 'CONNECTED'">
+    <svg viewBox="0 0 160 160" preserveAspectRatio="xMidYMid meet">
+      <g id="Layer_1-2" data-name="Layer 1" transform="translate(-10 5)">
+        <g id="Group_28773" data-name="Group 28773">
+          <circle cx="79" cy="88" r="50" stroke="green" stroke-width="4.5" class="fill-white" />
+          <path
+            class="fill-white"
+            d="M125.6,87.45a46.38,46.38,0,0,1-46.38,46.27H79.1A46.36,46.36,0,0,1,32.83,87.34v-.12A46.42,46.42,0,0,1,79.18,41h.15a46.4,46.4,0,0,1,46.27,46.5Z"
+            border="5px dashed #00875A"
+          />
+        </g>
+        <g id="Group_28780" data-name="Group 28780">
+          <path
+            id="Path_38666"
+            data-name="Path 38666"
+            class="fill-green"
+            d="M2,27.11H30.888V21.333H2Zm2.889-4.333H7.778v2.889H4.889ZM2,4V9.778H30.888V4ZM7.778,8.333H4.889V5.444H7.778ZM2,18.444H30.888V12.666H2Zm2.889-4.333H7.778V17H4.889Z"
+            transform="translate(62.5 72)"
+          />
+        </g>
+        <rect
+          id="Rectangle_7185"
+          data-name="Rectangle 7185"
+          class="fill-none"
+          x="47.07"
+          y="58.28"
+          width="62.15"
+          height="62.15"
+        />
+        <g id="Group_41286" data-name="Group 41286">
+          <g id="Rectangle_10366-2" data-name="Rectangle 10366-2">
+            <rect
+              id="Rectangle_10366"
+              data-name="Rectangle 10366"
+              width="69"
+              rx="12"
+              transform="translate(45 126)"
+              class="rectangle && fill-green"
+            />
+          </g>
+          <g id="_7_10" data-name=" 7 10" class="cls-4">
+            <g id="Group_28780" data-name="Group 28780" *ngIf="statusCNS === 'CONNECTED'">
+              <path class="fill-white" d="M9,7H6L4,10.5H1v3H4L6,17H9V7Z" transform="translate(55 127)" />
+              <path class="fill-white" d="M20,10.5,18,7H15V17h3l2-3.5h3v-3Z" transform="translate(50 127)" />
+              <rect class="fill-none" width="24" height="24" transform="translate(55 127)" />
+            </g>
+            <text class="host-count && fill-white" transform="translate(78 144)" *ngIf="configuration">
+              <tspan>{{ configuration.hosts.split(',').length | number: '2.0' }}</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<div *ngIf="oneXVersion && (statusCNS === 'DISCONNECTED' || statusCNS === 'WAITING')">
+  <div class="host-list" transform="translate(85 45)">
+    <svg viewBox="0 0 160 18" preserveAspectRatio="xMidYMid meet">
+      <text x="0" y="9" class="connection-text">
+        {{ 'disconnected-units' | translate }}
+      </text>
+    </svg>
+    <mat-grid-list cols="1" rowHeight="4:1">
+      <div *ngFor="let host of disconnectedHost; odd as isOdd">
+        <mat-grid-tile>
+          <div class="item-container" [class.odd-item]="isOdd">
+            <svg viewBox="0 0 148 37" preserveAspectRatio="xMidYMid meet">
+              <g *ngIf="host.alarmOn && (host.status === '0' || host.status === '3')">
+                <defs>
+                  <style>
+                    .pulse-rect {
+                      fill: url(#cns-Gradient);
+                    }
+                    .pulse {
+                      fill: url(#cns-Gradient);
+                    }
+                  </style>
+                  <radialGradient id="cns-Gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+                    <stop offset="0" stop-color="#CC00338F" stop-opacity="0" />
+                    <stop offset="1" stop-color="#CC00338F" stop-opacity="0.561" />
+                  </radialGradient>
+                </defs>
+                <circle class="pulse" cx="96" cy="15" r="0">
+                  <animate
+                    id="first"
+                    attributeName="r"
+                    attributeType="XML"
+                    from="0"
+                    to="600"
+                    begin="0s"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+                <rect
+                  x="0"
+                  width="100%"
+                  height="100%"
+                  class="pulse-rect"
+                  stroke-width="1"
+                  fill-opacity="0"
+                  stroke="#cc0033"
+                >
+                  <animate
+                    id="third"
+                    attributeName="stroke-width"
+                    attributeType="XML"
+                    from="0"
+                    to="1"
+                    begin="0s"
+                    dur="3s"
+                    repeatCount="indefinite"
+                    values="0; 0; 0.5; 1"
+                    keyTimes="0; 0.5; 0.75; 1"
+                  />
+                </rect>
+              </g>
+              <text x="5" y="14" class="host-name">
+                {{ host.name }}
+              </text>
+              <text x="5" y="32" class="host-connection-name">
+                {{ host.connectionName }}
+              </text>
+              <g transform="translate(125 10)" *ngIf="statusCNS === 'DISCONNECTED' && host.status === '3'">
+                <svg width="16px" height="16px" viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet">
+                  <path
+                    class="fill-blue"
+                    d="M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z"
+                  >
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 25 25"
+                      to="360 25 25"
+                      dur="1.5s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                </svg>
+              </g>
+            </svg>
+          </div>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
+</div>
+
+<div *ngIf="oneXVersion">
+  <div class="samples-more">
+    <svg viewBox="0 0 160 18" preserveAspectRatio="xMidYMid meet">
+      <text x="60" y="15" class="connection-text">{{ extraHosts }} {{ 'more' | translate }}</text>
+    </svg>
+  </div>
+</div>
+
+<div class="title" *ngIf="twoXVersion">
+  <svg viewBox="0 0 320 24" preserveAspectRatio="xMidYMid meet">
+    <text x="0" y="15" class="title-text" *ngIf="!editTitle && configuration" (click)="editTitle = true; focusInput()">
+      {{ configuration.title.length > 10 ? (configuration.title | slice: 0:10) + '...' : configuration.title }}
+    </text>
+    <svg viewBox="0 0 120 24" preserveAspectRatio="xMidYMid meet">
+      <g id="Group_41341" data-name="Group 41341">
+        <g *ngIf="statusCNS === 'WAITING'" transform="translate(100 0)">
+          <rect id="Rectangle_10366" data-name="Rectangle 10366" class="rectangle && fill-grey" rx="12" width="89" />
+          <text id="_10_20" data-name="10/20" class="host-count && fill-white">
+            <tspan x="12" y="18">Loading…</tspan>
+          </text>
+        </g>
+        <g *ngIf="statusCNS === 'DISCONNECTED'">
+          <g transform="translate(50 0)" *ngIf="allHostsWaiting.length > 0">
+            <rect
+              id="Rectangle_10366"
+              data-name="Rectangle 10366"
+              class="rectangle-blue"
+              rx="12"
+              transform="translate(1 1)"
+              width="131"
+            />
+            <g transform="translate(15 7)">
+              <svg width="10px" height="10px" viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet">
+                <path
+                  class="fill-blue"
+                  d="M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z"
+                >
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 25 25"
+                    to="360 25 25"
+                    dur="1.5s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+              </svg>
+              <text id="_10_20" data-name="10/20" transform="translate(15 10)" class="host-count && fill-blue">
+                {{ allHostsWaiting.length | number: '2.0' }}
+              </text>
+            </g>
+          </g>
+          <g transform="translate(98 0)">
+            <rect
+              id="Rectangle_10366"
+              data-name="Rectangle 10366"
+              transform="translate(4 0)"
+              rx="12"
+              class="rectangle && fill-red"
+              width="89"
+            />
+            <path
+              class="fill-white"
+              transform="translate(10 3)"
+              d="M2,14.667H15.333V12H2Zm1.333-2H4.667V14H3.333ZM2,4V6.667H15.333V4ZM4.667,6H3.333V4.667H4.667ZM2,10.667H15.333V8H2Zm1.333-2H4.667V10H3.333Z"
+            />
+            <rect class="fill-none" width="24" height="24" transform="translate(55 127)" />
+            <text id="_10_20" data-name="10/20" transform="translate(35 18)" class="host-count && fill-white">
+              <tspan x="0" y="0">
+                {{ allHosts.length | number: '2.0' }}/
+                {{ configuration.hosts.split(',').length | number: '2.0' }}
+              </tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </svg>
+</div>
+
+<div *ngIf="twoXVersion">
+  <div *ngIf="statusCNS === 'CONNECTED'">
+    <svg viewBox="0 0 330 330" preserveAspectRatio="xMidYMid meet">
+      <g id="Layer_1-2" data-name="Layer 1" transform="translate(90 70)">
+        <g id="Group_28773" data-name="Group 28773">
+          <circle cx="79" cy="88" r="50" stroke="green" stroke-width="4.5" class="fill-white" />
+          <path
+            class="fill-white"
+            d="M125.6,87.45a46.38,46.38,0,0,1-46.38,46.27H79.1A46.36,46.36,0,0,1,32.83,87.34v-.12A46.42,46.42,0,0,1,79.18,41h.15a46.4,46.4,0,0,1,46.27,46.5Z"
+            border="3.5px dashed #00875A"
+          />
+        </g>
+        <g id="Group_28780" data-name="Group 28780">
+          <path
+            id="Path_38666"
+            data-name="Path 38666"
+            class="fill-green"
+            d="M2,27.11H30.888V21.333H2Zm2.889-4.333H7.778v2.889H4.889ZM2,4V9.778H30.888V4ZM7.778,8.333H4.889V5.444H7.778ZM2,18.444H30.888V12.666H2Zm2.889-4.333H7.778V17H4.889Z"
+            transform="translate(62.5 72)"
+          />
+        </g>
+        <rect
+          id="Rectangle_7185"
+          data-name="Rectangle 7185"
+          class="fill-none"
+          x="47.07"
+          y="58.28"
+          width="62.15"
+          height="62.15"
+        />
+        <g id="Group_41286" data-name="Group 41286">
+          <g id="Rectangle_10366-2" data-name="Rectangle 10366-2">
+            <rect
+              id="Rectangle_10366"
+              data-name="Rectangle 10366"
+              width="69"
+              rx="12"
+              transform="translate(45 126)"
+              class="rectangle && fill-green"
+            />
+          </g>
+          <g id="_7_10" data-name=" 7 10" class="cls-4">
+            <g id="Group_28780" data-name="Group 28780" *ngIf="statusCNS === 'CONNECTED'">
+              <path class="fill-white" d="M9,7H6L4,10.5H1v3H4L6,17H9V7Z" transform="translate(55 127)" />
+              <path class="fill-white" d="M20,10.5,18,7H15V17h3l2-3.5h3v-3Z" transform="translate(50 127)" />
+              <rect class="fill-none" width="24" height="24" transform="translate(55 127)" />
+            </g>
+            <text class="host-count && fill-white" transform="translate(78 144)" *ngIf="configuration">
+              <tspan>{{ configuration.hosts.split(',').length | number: '2.0' }}</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="host-list-2-columns" *ngIf="statusCNS === 'DISCONNECTED' || statusCNS === 'WAITING'">
+    <svg viewBox="0 0 320 18" preserveAspectRatio="xMidYMid meet">
+      <text x="0" y="15" class="connection-text">
+        {{ 'disconnected-units' | translate }}
+      </text>
+      <text x="233" y="15" class="connection-text">
+        {{ 'last-connection' | translate }}
+      </text>
+    </svg>
+    <mat-grid-list cols="1" rowHeight="9:1">
+      <div *ngFor="let host of disconnectedHost; odd as isOdd">
+        <mat-grid-tile>
+          <div class="item-container" [class.odd-item]="isOdd">
+            <svg viewBox="0 0 320 34" preserveAspectRatio="xMidYMid meet">
+              <g *ngIf="host.alarmOn && (host.status === '0' || host.status === '3')">
+                <defs>
+                  <style>
+                    .pulse-rect {
+                      fill: url(#cns-Gradient);
+                    }
+                    .pulse {
+                      fill: url(#cns-Gradient);
+                    }
+                  </style>
+                  <radialGradient id="cns-Gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+                    <stop offset="0" stop-color="#CC00338F" stop-opacity="0" />
+                    <stop offset="1" stop-color="#CC00338F" stop-opacity="0.561" />
+                  </radialGradient>
+                </defs>
+                <circle class="pulse" cx="160" cy="15" r="0">
+                  <animate
+                    id="first"
+                    attributeName="r"
+                    attributeType="XML"
+                    from="0"
+                    to="900"
+                    begin="0s"
+                    dur="3s"
+                    repeatCount="indefinite"
+                    restart="never"
+                  />
+                </circle>
+                <rect
+                  x="0"
+                  width="100%"
+                  height="100%"
+                  class="pulse-rect"
+                  stroke-width="1"
+                  fill-opacity="0"
+                  stroke="#cc0033"
+                >
+                  <animate
+                    id="third"
+                    attributeName="stroke-width"
+                    attributeType="XML"
+                    from="0"
+                    to="1"
+                    begin="0s"
+                    dur="3s"
+                    repeatCount="indefinite"
+                    values="0; 0; 0.5; 1"
+                    keyTimes="0; 0.5; 0.75; 1"
+                  />
+                </rect>
+              </g>
+              <text x="5" y="13" class="host-name">
+                {{ host.name }}
+              </text>
+              <text x="5" y="30" class="host-connection-name">
+                {{ host.connectionName }}
+              </text>
+              <g transform="translate(190 8)" *ngIf="host.status === '3' && statusCNS === 'DISCONNECTED'">
+                <svg width="16px" height="16px" viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet">
+                  <path
+                    class="fill-blue"
+                    d="M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z"
+                  >
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 25 25"
+                      to="360 25 25"
+                      dur="1.5s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                </svg>
+              </g>
+              <g *ngIf="host.time">
+                <text x="215" y="22" class="host-connection-name">
+                  {{ host.time | date: 'HH:mm' }}
+                </text>
+                <text x="258" y="22" class="host-date">
+                  {{ host.time | date: 'dd/MM/yy' }}
+                </text>
+              </g>
+              <g *ngIf="!host.time">
+                <text x="232" y="22" class="host-date">
+                  UNKNOWN
+                </text>
+              </g>
+            </svg>
+          </div>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
+  <div class="samples-more">
+    <svg viewBox="0 0 320 18" preserveAspectRatio="xMidYMid meet">
+      <text x="140" y="15" class="connection-text">{{ extraHosts }} {{ 'more' | translate }}</text>
+    </svg>
+  </div>
+</div>

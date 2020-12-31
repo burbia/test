@@ -1,0 +1,12 @@
+::ng-deep body {
+    background-color: transparent;
+}
+
+.alarm-pie{
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    max-width: 320px;
+}

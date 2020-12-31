@@ -1,0 +1,258 @@
+<mat-toolbar class="toolbar" [class.mat-elevation-z4]="true">
+  <div class="toolbar-wrapper">
+    <mat-icon (click)="dialogRef.close()">close</mat-icon>
+    <p class="title">{{ 'widget-configuration' | translate }} - Sample Workload</p>
+    <mat-icon (click)="launchUserAssistance()" class="info">info_outlined</mat-icon>
+  </div>
+</mat-toolbar>
+
+<div class="steps-container">
+  <mat-horizontal-stepper labelPosition="bottom" #stepper class="stepper">
+    <ng-template matStepperIcon="edit">
+      <mat-icon>done</mat-icon>
+    </ng-template>
+    <mat-step *ngFor="let step of steps">
+      <ng-template matStepLabel>{{ step.name | translate }}</ng-template>
+    </mat-step>
+  </mat-horizontal-stepper>
+  <div class="container mat-elevation-z4">
+    <div *ngIf="stepper.selectedIndex == 0" class="name-container">
+      <div class="header">
+        <p>
+          {{ 'select-widget-title-priority' | translate }}
+        </p>
+      </div>
+      <div style="height: 80%">
+        <form [formGroup]="widgetTitleForm">
+          <div class="title-form">
+            <label>{{ 'widget-name' | translate }}</label>
+            <input
+              required
+              #widgetTitle
+              id="widgetTitle"
+              formControlName="widgetTitle"
+              placeholder="Assign name"
+              [ngClass]="{
+                'red-border-error':
+                  (titleForm.controls.widgetTitle.errors?.required ||
+                    titleForm.controls.widgetTitle.errors?.minlength) &&
+                  (titleForm.controls.widgetTitle.dirty || titleForm.controls.widgetTitle.touched)
+              }"
+            />
+            <div class="length-suggestion">{{ 'title-10-characters' | translate }}.</div>
+            <div
+              *ngIf="
+                titleForm.controls.widgetTitle.invalid &&
+                (titleForm.controls.widgetTitle.dirty || titleForm.controls.widgetTitle.touched)
+              "
+              class="form-error"
+            >
+              <div *ngIf="titleForm.controls.widgetTitle.errors.required" style="background-color: #fafafa;">
+                {{ 'title-required' | translate }}.
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="priority-card">
+          <div class="header">
+            <p>
+              {{ 'priority-filtering' | translate }}
+            </p>
+          </div>
+          <div class="priority-form">
+            <label>
+              {{ 'select-priority' | translate }}
+            </label>
+            <mat-select
+              class="priority-picker"
+              placeholder="Priority"
+              panelClass="lpm-option"
+              (selectionChange)="changePriority($event)"
+              [(value)]="prioritySelected"
+            >
+              <ng-container>
+                <mat-option *ngFor="let priority of priorities" value="{{ priority.value }}">
+                  {{ priority.name }}
+                </mat-option>
+              </ng-container>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="stepper.selectedIndex === 1" class="lab-container">
+      <div class="header">
+        <p>
+          {{ 'select-instruments' | translate }}
+        </p>
+      </div>
+      <app-lab-layout [selectedInstruments]="instrumentsSelected" (onSelectInstrument)="selectInstruments($event)">
+      </app-lab-layout>
+    </div>
+
+    <div *ngIf="stepper.selectedIndex === 2" class="lab-container">
+      <app-tat-browse-test [selectedTestRecover]="selectedTests" (onSelectTest)="selectTests($event)">
+      </app-tat-browse-test>
+    </div>
+
+    <div *ngIf="stepper.selectedIndex === 3" class="lab-container">
+      <div class="header">
+        <p>
+          {{ 'sample-workload-parameters' | translate }}
+        </p>
+      </div>
+      <div class="setup-wrapper">
+        <div class="process-selector">
+          <div class="title">
+            <div class="subtitle">
+              {{ 'select-from-list-processes' | translate }}
+            </div>
+          </div>
+          <div class="options-list">
+            <div class="options-wrapper">
+              <div class="description">
+                {{ 'consider-start' | translate }}
+              </div>
+              <div class="option-picker" [ngStyle]="{ 'border-left': '4px solid #BABABA' }">
+                <mat-radio-group
+                  [(value)]="pendingSelected"
+                  aria-label="Select an option"
+                  (change)="changePendingOption($event)"
+                >
+                  <mat-radio-button color="primary" *ngFor="let option of pendingOptions" value="{{ option.value }}">
+                    {{ option.title | translate }}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+            <div class="options-wrapper">
+              <div class="description">
+                {{ 'consider-process' | translate }}
+              </div>
+              <div class="option-picker" [ngStyle]="{ 'border-left': '4px solid #25B0DD' }">
+                <mat-radio-group
+                  [(value)]="processingSelected"
+                  aria-label="Select an option"
+                  (change)="changeProcessingOption($event)"
+                >
+                  <mat-radio-button
+                    [disabled]="option.disabled"
+                    color="primary"
+                    *ngFor="let option of processingOptions"
+                    value="{{ option.value }}"
+                  >
+                    {{ option.title | translate }}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+            <div class="options-wrapper">
+              <div class="description">
+                {{ 'consider-finish' | translate }}
+              </div>
+              <div class="option-picker" [ngStyle]="{ 'border-left': '4px solid #008F06' }">
+                <mat-radio-group
+                  [(value)]="completedSelected"
+                  aria-label="Select an option"
+                  (change)="changeCompletedOption($event)"
+                >
+                  <mat-radio-button color="primary" *ngFor="let option of completedOptions" value="{{ option.value }}">
+                    {{ option.title | translate }}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="preview">
+          <div class="slides">
+            <p class="preview-text">{{ 'preview' | translate }}</p>
+            <slideshow [imageUrls]="imageUrlArray" showDots="true" dotColor="#0066CC"></slideshow>
+          </div>
+
+          <form [formGroup]="widgetSetupForm">
+            <div class="reset-form">
+              <div class="reset-field">
+                <label>{{ 'reset-pending' | translate }}</label>
+                <input
+                  required
+                  class="input-time"
+                  type="number"
+                  placeholder="Days"
+                  id="resetPending"
+                  #resetPending
+                  formControlName="resetPending"
+                  min="0"
+                  (keypress)="omit_symbols($event)"
+                />
+              </div>
+              <div class="reset-field">
+                <label>{{ 'reset-processing' | translate }}</label>
+                <input
+                  required
+                  class="input-time"
+                  type="number"
+                  placeholder="Days"
+                  id="resetProcessing"
+                  #resetProcessing
+                  formControlName="resetProcessing"
+                  min="0"
+                  (keypress)="omit_symbols($event)"
+                />
+              </div>
+              <div class="reset-field">
+                <label>{{ 'reset-completed' | translate }}</label>
+                <input
+                  required
+                  class="input-time"
+                  type="number"
+                  placeholder="Days"
+                  id="resetCompleted"
+                  #resetCompleted
+                  formControlName="resetCompleted"
+                  min="0"
+                  (keypress)="omit_symbols($event)"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-toolbar class="action-bar mat-elevation-z4">
+  <div class="next-previous-wrapper">
+    <button
+      aria-labelledby="previous"
+      *ngIf="stepper.selectedIndex !== 0"
+      mat-button
+      class="previous-button"
+      (click)="goStepBack(stepper)"
+    >
+      {{ 'previous' | translate }}
+    </button>
+    <button
+      aria-labelledby="next"
+      *ngIf="stepper.selectedIndex !== 3"
+      mat-button
+      class="next-button"
+      (click)="goStepForward(stepper)"
+      [disabled]="!nextButtonEnabled || !titleForm.valid"
+    >
+      {{ 'next' | translate }}
+    </button>
+    <button
+      aria-labelledby="confirm"
+      *ngIf="stepper.selectedIndex === 3"
+      mat-button
+      class="next-button"
+      (click)="saveParameters()"
+      [disabled]="!setupForm.valid || !confirmButtonEnabled"
+    >
+      {{ 'confirm-setup' | translate }}
+    </button>
+  </div>
+</mat-toolbar>

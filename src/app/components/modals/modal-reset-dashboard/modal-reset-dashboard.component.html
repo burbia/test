@@ -1,0 +1,86 @@
+<div mat-dialog-title class="title">
+  <mat-icon class="close-icon" (click)="cancel()">close</mat-icon>
+  <span class="span-title">{{ 'modal-reset-dashboard-title' | translate }}</span>
+</div>
+<mat-divider class="title-divider"></mat-divider>
+<mat-dialog-content>
+  <div class="content">
+    <p class="manual-title">{{ 'modal-reset-dashboard-manual-title' | translate }}</p>
+    <p class="manual-info">
+      <span class="manual-subtitle">{{ 'modal-reset-dashboard-manual-subtitle' | translate }}<br /></span>
+      <mat-icon class="info-icon">info_outlined</mat-icon>
+      <span class="manual-info-text">{{ 'modal-reset-dashboard-manual-info' | translate }}</span>
+    </p>
+  </div>
+  <mat-dialog-actions align="end" class="actions">
+    <button aria-labelledby="reset now" mat-button class="back-blue" (click)="resetNow()">
+      {{ 'modal-button-reset-now' | translate }}
+    </button>
+  </mat-dialog-actions>
+  <mat-divider class="content-divider"></mat-divider>
+  <div class="content">
+    <p class="manual-title">{{ 'modal-reset-dashboard-scheduled-title' | translate }}</p>
+    <p class="manual-info">
+      <span class="manual-subtitle">{{ 'modal-reset-dashboard-scheduled-subtitle' | translate }}<br /></span>
+    </p>
+    <form [formGroup]="scheduledTimeForm" (ngSubmit)="scheduled()">
+      <div class="input-div">
+        <input
+          autofocus
+          required
+          type="text"
+          maxlength="2"
+          #inputHour
+          id="inputHour"
+          formControlName="inputHour"
+          placeholder="Hour"
+          (input)="onInput($event)"
+          (blur)="onBlur($event)"
+          [ngClass]="{
+            'red-border-error': timeForm.inputHour.invalid && (timeForm.inputHour.dirty || timeForm.inputHour.touched)
+          }"
+        />
+        <span class="hour-minute-separator">:</span>
+        <input
+          autofocus
+          required
+          type="text"
+          maxlength="2"
+          #inputMin
+          id="inputMin"
+          formControlName="inputMin"
+          placeholder="Minute"
+          (input)="onInput($event)"
+          (blur)="onBlur($event)"
+          [ngClass]="{
+            'red-border-error': timeForm.inputMin.invalid && (timeForm.inputMin.dirty || timeForm.inputMin.touched)
+          }"
+        />
+      </div>
+      <div class="form-error">
+        <div
+          *ngIf="
+            (timeForm.inputHour.invalid && (timeForm.inputHour.dirty || timeForm.inputHour.touched)) ||
+            (timeForm.inputMin.invalid && (timeForm.inputMin.dirty || timeForm.inputMin.touched))
+          "
+        >
+          {{ 'title-reset-input-invalid' | translate }}
+        </div>
+      </div>
+    </form>
+  </div>
+  <mat-dialog-actions class="actions">
+    <button aria-labelledby="clear" mat-button class="back-blue clear-button" [disabled]="isEmpty()" (click)="clear()">
+      {{ 'modal-button-clear' | translate }}
+    </button>
+    <button
+      aria-labelledby="confirm"
+      mat-button
+      class="back-blue confirm-button"
+      [disabled]="!scheduledTimeForm.valid && !confirmEnabled"
+      (click)="scheduled()"
+    >
+      {{ 'modal-button-confirm' | translate }}
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>

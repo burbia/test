@@ -1,0 +1,297 @@
+.comp-body {
+    background-color: #F7FBFF;
+    height: 94.5vh;
+}
+
+.example-container {
+    width: 25%;
+    max-width: 100%;
+    margin: 0 3% 25px 3%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #DEE8F2;
+    border-radius: 25px;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 12%;
+    padding-left: 12%;
+    padding-top: 7%;
+    padding-bottom: 5%;
+}
+
+.square {
+    padding: 7%;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px;
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, #F9F9F9 1px, transparent 1px), linear-gradient(to bottom, #F9F9F9 1px, transparent 1px);
+    height: 90%;
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+.parent-container {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+mat-list-option {
+    text-align: center
+}
+
+.list {
+    padding-bottom: 7%;
+}
+
+.square-title {
+    float: left;
+    margin-left: 24px;
+    margin-top: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #212121;
+    z-index: 1;
+    position: absolute;
+}
+
+.list-header {
+    font-size: 16px;
+    text-align: center;
+    color: #212121;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.first-divider {
+    background-color: white;
+    padding-bottom: 1px;
+}
+
+.confirm-button {
+    border-radius: 4px;
+    position: fixed;
+    bottom: 4%;
+    right: 12%;
+    background-color: #0066CC;
+    width: 148px;
+    height: 38px;
+}
+
+.toolbar {
+    background-color: white;
+    color: #212121;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.starting-point {
+    float: left;
+    transform: rotate(270deg);
+    background-color: #0066CC;
+    cursor: default;
+    position: absolute;
+    margin-left: -50%;
+    border-radius: 25px;
+}
+
+.point-mini {
+    position: absolute;
+    margin-top: 20%;
+    margin-left: -46%;
+    background-color: #7FC4FD;
+    border: 1px solid rgba(38, 153, 251, 0.87);
+    width: 20px;
+    height: 20px;
+    line-height: 14px;
+    font-size: 14px;
+    &::ng-deep .mat-button-wrapper {
+        line-height: 14px;
+        padding: 0;
+        .mat-icon {
+            font-size: 14px;
+            padding-right: 4px;
+            padding-top: 4px;
+        }
+    }
+}
+
+.finish-point {
+    float: right;
+    position: absolute;
+    cursor: default;
+    transform: rotate(90deg);
+    border-radius: 25px;
+    margin-left: 100%;
+}
+
+.instrument {
+    border: 1px solid #C4C4C4;
+    border-radius: 6px;
+    background-color: #FAFAFA;
+    color: #212121;
+    cursor: default;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.instrument p {
+    margin: 0;
+    text-align: left;
+}
+
+.instrument mat-icon {
+    vertical-align: middle;
+    color: #C4C4C4;
+}
+
+.icon-container {
+    position: absolute;
+    right: 0;
+    padding-right: 12%;
+}
+
+.options-icon {
+    padding: 14px;
+    background-color: #FAFAFA;
+    float: right;
+    margin-top: 13px;
+    margin-right: 13px;
+    color: #737373;
+    border: 1px solid #C4C4C4;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+}
+
+.print-icon {
+    padding: 14px;
+    background-color: #FAFAFA;
+    float: right;
+    margin-top: 13px;
+    margin-right: 13px;
+    margin-right: 0;
+    color: #737373;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px 0 0 4px;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+}
+
+.last-update {
+    position: absolute;
+    float: right;
+    bottom: 0;
+    color: #212121;
+    right: 13px;
+}
+
+.union-line {
+    position: absolute;
+    background-color: #0066CC;
+    padding-bottom: 2px;
+    margin-bottom: -19px !important;
+    z-index: 0;
+}
+
+.button-left {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    background-color: #7FC4FD;
+    border: 1px solid rgba(38, 153, 251, 0.87);
+    width: 20px;
+    height: 20px;
+    line-height: 14px;
+    font-size: 14px;
+    bottom: -56%;
+    box-shadow: none !important;
+    &::ng-deep .mat-button-wrapper {
+        line-height: 14px;
+        padding: 0;
+        .mat-icon {
+            font-size: 14px;
+            padding-right: 4px;
+            padding-top: 4px;
+        }
+    }
+}
+
+.button-right {
+    position: absolute;
+    right: 0;
+    background-color: #7FC4FD;
+    border: 1px solid rgba(38, 153, 251, 0.87);
+    width: 20px;
+    height: 20px;
+    line-height: 14px;
+    font-size: 14px;
+    bottom: -56%;
+    box-shadow: none !important;
+    &::ng-deep .mat-button-wrapper {
+        line-height: 14px;
+        padding: 0;
+        .mat-icon {
+            font-size: 14px;
+            padding-right: 4px;
+            padding-top: 4px;
+        }
+    }
+}
+
+.point-right {
+    position: absolute;
+    right: 16px;
+    margin-top: -7px;
+    margin-right: -10px;
+    background-color: #7FC4FD;
+    border: 1px solid rgba(38, 153, 251, 0.87);
+    width: 20px;
+    height: 20px;
+    line-height: 14px;
+    font-size: 14px;
+    box-shadow: none !important;
+    &::ng-deep .mat-button-wrapper {
+        line-height: 14px;
+        padding: 0;
+        .mat-icon {
+            font-size: 14px;
+            padding-right: 4px;
+            padding-top: 4px;
+        }
+    }
+}
+
+.point-left {
+    position: absolute;
+    left: 16px;
+    margin-top: -7px;
+    margin-left: -10px;
+    background-color: #7FC4FD;
+    border: 1px solid rgba(38, 153, 251, 0.87);
+    width: 20px;
+    height: 20px;
+    line-height: 14px;
+    font-size: 14px;
+    box-shadow: none !important;
+    &::ng-deep .mat-button-wrapper {
+        line-height: 14px;
+        padding: 0;
+        .mat-icon {
+            font-size: 14px;
+            padding-right: 4px;
+            padding-top: 4px;
+        }
+    }
+}

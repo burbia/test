@@ -1,0 +1,44 @@
+<div class="select-item">
+  <mat-grid-list cols="2" rowHeight="48px">
+    <mat-card class="html-card" [ngStyle]="{ height: heightSelect || '507px' }">
+      <mat-card-header class="card-header">
+        <mat-card-title class="card-title">
+          <div class="title">
+            <mat-checkbox
+              class="select-item-checkbox"
+              data-testid="input-all"
+              checkboxPosition="before"
+              [(ngModel)]="allItemsSelected"
+              (change)="selectAllItems()"
+              [(indeterminate)]="indeterminate"
+              >{{ literalTitle | translate }}</mat-checkbox
+            >
+            <mat-chip-list>
+              <mat-chip color="primary" selected *ngIf="itemsSelectedOptions.length > 0">{{ badgeValue }}</mat-chip>
+            </mat-chip-list>
+            <div class="required" *ngIf="itemsSelectedOptions.length == 0">
+              <span class="requiredText">{{ 'require-selection' | translate }}</span>
+              <mat-icon svgIcon="info-required" aria-hidden="false" aria-label="info required"></mat-icon>
+            </div>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <mat-selection-list
+          class="item-list"
+          (selectionChange)="changeSelectItem()"
+          [(ngModel)]="itemsSelectedOptions"
+          [ngStyle]="{ height: heightPercent || '94%' }"
+        >
+          <div *ngFor="let item of itemList">
+            <mat-list-option checkboxPosition="before" [value]="item.value" [attr.data-testid]="item.name">
+              {{ item.name }}
+              <mat-divider></mat-divider>
+            </mat-list-option>
+          </div>
+        </mat-selection-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-list>
+</div>

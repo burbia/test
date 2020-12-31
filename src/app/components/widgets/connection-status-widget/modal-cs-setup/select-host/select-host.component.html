@@ -1,0 +1,89 @@
+<div class="select-event-wrapper">
+  <mat-grid-list cols="2" rowHeight="61px">
+    <mat-grid-tile row
+      ><span class="host-title">{{ 'select-host-connection-title' | translate }}</span></mat-grid-tile
+    >
+    <mat-grid-tile>
+      <div class="required" *ngIf="itemsSelectedOptions.length == 0">
+        <mat-icon
+          class="icon-required"
+          svgIcon="info-required"
+          aria-hidden="false"
+          aria-label="info required"
+        ></mat-icon>
+        <span class="required-text">{{ 'require-selection' | translate }}</span>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-divider></mat-divider>
+  <mat-grid-list cols="1" rowHeight="470px">
+    <mat-grid-tile>
+      <div class="select-item">
+        <mat-grid-list cols="2" rowHeight="48px">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>
+                <div class="title">
+                  <mat-checkbox
+                    data-testid="input-all"
+                    checkboxPosition="before"
+                    [(ngModel)]="allItemsSelected"
+                    (change)="selectAllItems()"
+                    [(indeterminate)]="indeterminate"
+                  >
+                    {{ literalTitle | translate }}</mat-checkbox
+                  >
+                  <mat-chip-list class="badged">
+                    <mat-chip color="primary" [selected]="itemsSelectedOptions.length > 0">{{ badgeValue }}</mat-chip>
+                  </mat-chip-list>
+                </div>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+              <mat-selection-list
+                class="item-list"
+                (selectionChange)="changeSelectItem()"
+                [(ngModel)]="itemsSelectedOptions"
+              >
+                <mat-grid-list cols="2" rowHeight="28px" class="select-sort-header">
+                  <mat-grid-tile (click)="sortItems('hostName')">
+                    <div class="host-name-sort-title">
+                      {{ 'host-name' | translate }}
+                    </div>
+                    <mat-icon class="mat-icon-sort-host-name" [color]="orderHost[0].active ? 'primary' : ''">{{
+                      orderHost[0].order === 'asc' ? 'arrow_drop_down' : 'arrow_drop_up'
+                    }}</mat-icon>
+                  </mat-grid-tile>
+                  <mat-grid-tile (click)="sortItems('connectionName')">
+                    <div class="host-connection-name-sort-title">
+                      {{ 'connection-name' | translate }}
+                    </div>
+                    <mat-icon
+                      class="mat-icon-sort-host-connection-name"
+                      [color]="orderHost[1].active ? 'primary' : ''"
+                      >{{ orderHost[1].order === 'asc' ? 'arrow_drop_down' : 'arrow_drop_up' }}</mat-icon
+                    >
+                  </mat-grid-tile>
+                </mat-grid-list>
+                <div *ngFor="let item of itemList">
+                  <mat-list-option checkboxPosition="before" [value]="item.value" [attr.data-testid]="item.name">
+                    <mat-grid-list cols="2" rowHeight="14px">
+                      <mat-grid-tile
+                        ><span class="host-name-column-text">{{ item.hostName }}</span></mat-grid-tile
+                      >
+                      <mat-grid-tile
+                        ><span class="host-connection-name-column-text">{{ item.connectionName }}</span></mat-grid-tile
+                      >
+                    </mat-grid-list>
+                    <mat-divider></mat-divider>
+                  </mat-list-option>
+                </div>
+              </mat-selection-list>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-list>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

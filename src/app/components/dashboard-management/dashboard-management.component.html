@@ -1,0 +1,119 @@
+<div class="container">
+  <mat-toolbar class="global-toolbar">
+    <img alt="PM" class="lpm-logo" src="./assets/icons/LPM_icon.svg" />
+    <div>Production Monitoring</div>
+    <div class="right">
+      <mat-chip-list *ngIf="license.demoStatus !== 'NO_DEMO'">
+        <mat-chip
+          [ngClass]="{
+            'trial-left': true,
+            'background-blue': license.demoStatus === 'DEMO_ADVISE',
+            'background-yellow': license.demoStatus === 'DEMO_WARNING',
+            'background-red trial-left-color-white': license.demoStatus === 'DEMO_END'
+          }"
+          selected
+          *ngIf="license.demoStatus != 'DEMO_ADVISE'"
+        >
+          {{ license.daysLeft + ' '
+          }}{{ license.daysLeft === 1 ? ('day-left' | translate) : ('days-left' | translate) }}</mat-chip
+        >
+        <mat-chip class="trial" color="primary" selected>{{ 'trial' | translate }}</mat-chip>
+      </mat-chip-list>
+      <div class="name">{{ userName }}</div>
+      <div class="alias" [matMenuTriggerFor]="langMenu" matTooltip="{{ 'current-logged-user' | translate }}">
+        {{ userAlias }}
+      </div>
+      <mat-menu #langMenu="matMenu" yPosition="below">
+        <button aria-labelledby="langEs" mat-menu-item class="menu-item" (click)="changeLang('en')">
+          {{ 'english' | translate }}
+        </button>
+        <!-- <button aria-labelledby="langEn" mat-menu-item class="menu-item"
+          (click)="changeLang('es')">{{'spanish' | translate}}</button> -->
+        <button aria-labelledby="logOut" mat-menu-item class="menu-item" (click)="logout()">
+          {{ 'log-out' | translate }}
+        </button>
+      </mat-menu>
+      <mat-icon [matMenuTriggerFor]="aboutMenu" matTooltip="{{ 'support' | translate }}">info_outlined</mat-icon>
+      <mat-menu #aboutMenu="matMenu" yPosition="below">
+        <button mat-menu-item class="menu-item" (click)="launchUserAssistance()">
+          {{ 'user-assistance' | translate }}
+        </button>
+        <button mat-menu-item class="menu-item" (click)="launchAbout()">{{ 'about' | translate }}</button>
+      </mat-menu>
+      <img class="roche-logo" alt="Roche" src="./assets/icons/Roche_Logo.png" />
+    </div>
+  </mat-toolbar>
+  <mat-toolbar class="toolbar">
+    <div>{{ 'dashboard-management' | translate }}</div>
+  </mat-toolbar>
+  <ng-container *ngIf="license.isLicense">
+    <div class="filter">
+      <mat-icon>search</mat-icon>
+      <input [(ngModel)]="searchText" placeholder="{{ 'search-dashboard' | translate }}" />
+    </div>
+    <div class="grid-wrapper">
+      <mat-grid-list cols="8" class="dashboard-list">
+        <div class="general-title">{{ 'my-dashboards' | translate }}</div>
+        <mat-grid-tile (click)="addDashboard()">
+          <div
+            class="add-dashboard"
+            matTooltip="{{ 'create-new-dashboard' | translate }}"
+            matTooltipClass="add-dashboard-tooltip"
+          >
+            <div class="add mat-elevation-z1">
+              <mat-icon>add</mat-icon>
+            </div>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile *ngFor="let dashboard of dashboards | filterDashboard: searchText">
+          <div class="dashboard-item">
+            <div class="background" (click)="launchDashboard(dashboard)">
+              <img alt="Lab" src="./assets/images/Dashboard_Card_Background.svg" style="width: 100%;" />
+            </div>
+            <div class="title-container">
+              <div class="title" (click)="dashboard.editingTitle = true; focusTitleInput(dashboard)">
+                {{ dashboard.title.length > 14 ? (dashboard.title | slice: 0:14) + '...' : dashboard.title }}
+                <form [formGroup]="dashboardTitleForm">
+                  <input
+                    formControlName="inputTitle"
+                    *ngIf="dashboard.editingTitle"
+                    autofocus
+                    (blur)="dashboard.editingTitle = false"
+                    (keyup.enter)="dashboard.editingTitle = false; updateTitle(dashboard)"
+                    [ngClass]="{
+                      'red-border-error':
+                        (titleForm.inputTitle.errors?.required || titleForm.inputTitle.errors?.minlength) &&
+                        (titleForm.inputTitle.dirty || titleForm.inputTitle.touched)
+                    }"
+                  />
+                </form>
+              </div>
+              <div class="date">
+                {{ dashboard.creationDate | date: 'shortDate':undefined:translate.currentLang }}
+              </div>
+              <mat-icon class="reset-icon" *ngIf="dashboard.resetTime">settings_backup_restore</mat-icon>
+              <mat-icon [matMenuTriggerFor]="menu" matTooltip="{{ 'extra-options' | translate }}">more_vert</mat-icon>
+              <mat-menu #menu="matMenu" yPosition="below">
+                <button
+                  aria-labelledby="duplicate"
+                  mat-menu-item
+                  class="menu-item"
+                  (click)="duplicateDashboard(dashboard)"
+                >
+                  {{ 'duplicate' | translate }}
+                </button>
+                <button aria-labelledby="delete" mat-menu-item class="menu-item" (click)="shareDashboard(dashboard)">
+                  {{ 'share' | translate }}
+                </button>
+                <button aria-labelledby="delete" mat-menu-item class="menu-item" (click)="deleteDashboard(dashboard)">
+                  {{ 'delete' | translate }}
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </ng-container>
+  <app-license *ngIf="!license.isLicense"></app-license>
+</div>

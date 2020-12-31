@@ -1,0 +1,118 @@
+{
+    "events": [
+        {
+            "code" : "SS",
+            "description" : "sample-seen",
+            "instruments" : "ALL"
+        },
+        {
+            "code" : "SNS",
+            "description" : "sample-seen-unselected",
+            "instruments" : "ALL"
+        },
+        {
+            "code" : "O0001",
+            "description" : "added-order",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "S0001",
+            "description" : "sample-seen-manually",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "S0002",
+            "description" : "sample-seen-pre",
+            "instruments" : "PRE-ANALYTIC"
+        },
+        {
+            "code" : "S0003",
+            "description" : "sample-seen-analyzer",
+            "instruments" : "INSTRUMENT"
+        },
+        {
+            "code" : "S0004",
+            "description" : "sample-seen-post",
+            "instruments" : "POST-ANALYTIC"
+        },
+        {
+            "code" : "S0005",
+            "description" : "sample-seen-undefined",
+            "instruments" : "UNKNOWN"
+        },
+        {
+            "code" : "S0006",
+            "description" : "sample-sorted-manually",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "S0007",
+            "description" : "sample-sorted-instrument",
+            "instruments" : "ALL"
+        },    
+        {
+            "code" : "S0008",
+            "description" : "workflow-sent-analyzer",
+            "instruments" : "INSTRUMENT"
+        },
+        {
+            "code" : "T0001",
+            "description" : "test-result-produced",
+            "instruments" : "INSTRUMENT"
+        },
+        {
+            "code" : "T0002",
+            "description" : "test-result-received",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "T0003",
+            "description" : "test-result-manually-updated",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "T0004",
+            "description" : "test-result-validated-technically",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "T0005",
+            "description" : "test-result-validated-medically",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "T0006",
+            "description" : "result-sent-host",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "T0007",
+            "description" : "test-registered",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "T0008",
+            "description" : "test-result-calculated",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "T0009",
+            "description" : "test-rerun",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "T0011",
+            "description" : "test-assigned",
+            "instruments" : "MANUAL"
+        },
+        {
+            "code" : "TT",
+            "description" : "test-results",
+            "instruments" : "INSTRUMENT"
+        }
+
+    ]
+    
+}
+
+    

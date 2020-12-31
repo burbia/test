@@ -1,0 +1,85 @@
+<div class="grid-container">
+  <mat-grid-list cols="3" rowHeight='100%'>
+    <mat-grid-tile>
+      <mat-card>
+        <div class="pre-analytics">
+          <mat-card-header>
+            <mat-checkbox color="primary" (change)="toggleFullSelection($event, 'PRE-ANALYTIC')"
+            [indeterminate]="!allPreSelected() && (preAnalyticsSelected.length > 0)" [checked]="allPreSelected() && (preAnalyticsSelected.length > 0)"></mat-checkbox>
+            <mat-card-title>{{'pre-analytics' | translate}}</mat-card-title>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <mat-selection-list class="instrument-list" (selectionChange)="sendInstrument()" [(ngModel)]="preAnalyticsSelected">
+            <mat-list-option checkboxPosition="before" *ngFor="let pre of preAnalytics" class="instrument" [value]="pre">
+              <div class="selected-border" *ngIf="pre.selected"></div>
+              <div class="titles">
+                <div class="subtitle">
+                  {{pre.instrumentName}}
+                </div>
+                <div class="title">
+                  {{pre.instrumentModel}}
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-checkbox color="primary" (change)="toggleFullSelection($event, 'INSTRUMENT')"
+          [indeterminate]="!allAnalyticsSelected() && (analyticsSelected.length > 0)" [checked]="allAnalyticsSelected() && (analyticsSelected.length > 0)">
+          </mat-checkbox>
+          <mat-card-title>{{'analytics-others' | translate}}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <div class="analytics">
+          <mat-selection-list class="instrument-list" (selectionChange)="sendInstrument()" [(ngModel)]="analyticsSelected">
+            <mat-list-option checkboxPosition="before" *ngFor="let analytic of analytics" [ngClass]="{'selected': analytic.selected}" [value]="analytic"
+              class="instrument">
+              <div class="selected-border" *ngIf="analytic.selected"></div>
+              <div class="titles">
+                <div class="subtitle">
+                  {{analytic.instrumentName}}
+                </div>
+                <div class="title">
+                  {{analytic.instrumentModel}}
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-checkbox color="primary" (change)="toggleFullSelection($event, 'POST-ANALYTIC')"
+          [indeterminate]="!allPostSelected() && (postAnalyticsSelected.length > 0)" [checked]="allPostSelected() && (postAnalyticsSelected.length > 0)"></mat-checkbox>
+          <mat-card-title>{{'post-analytics' | translate}}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <div class="post-analytics">
+          <mat-selection-list class="instrument-list" (selectionChange)="sendInstrument()" [(ngModel)]="postAnalyticsSelected">
+            <mat-list-option checkboxPosition="before" *ngFor="let post of postAnalytics" [ngClass]="{'selected': post.selected}" [value]="post"
+              class="instrument">
+              <div class="selected-border" *ngIf="post.selected"></div>
+              <div class="titles">
+                <div class="subtitle">
+                  {{post.instrumentName}}
+                </div>
+                <div class="title">
+                  {{post.instrumentModel}}
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

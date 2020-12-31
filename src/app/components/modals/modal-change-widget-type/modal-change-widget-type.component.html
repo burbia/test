@@ -1,0 +1,11 @@
+<h2 mat-dialog-title class="title"><mat-icon class="info-icon">info_outline</mat-icon><h4>{{'modal-type-title' | translate}}</h4></h2>
+
+<mat-dialog-content>
+
+<p class="content"> {{'modal-type-body' | translate}} </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="actions">
+    <button aria-labelledby="continue" mat-stroked-button class="proceed" (click)="proceed()" >{{'continue' | translate}}</button>
+    <button aria-labelledby="cancel" mat-flat-button class="back-blue" (click)="cancel()" >{{'cancel' | translate}}</button>
+</mat-dialog-actions>

@@ -1,0 +1,11 @@
+<h2 mat-dialog-title class="title"><mat-icon class="info-icon">info_outline</mat-icon><h4>Template dashboard available</h4></h2>
+
+<mat-dialog-content>
+
+<p class="content"> There is available a default dashboard that could be provided. Would you like to use the template dashboard or you prefer to custom your dashboard from scratch? </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="actions">
+    <button aria-labelledby="new" mat-stroked-button class="new" (click)="newDash()" >Edit new dashboard</button>
+    <button aria-labelledby="template" mat-flat-button class="back-blue" (click)="templateDash()" >Use template dashboard</button>
+</mat-dialog-actions>

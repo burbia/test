@@ -1,0 +1,160 @@
+{
+  "/app/rest/license": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/back/dashboard/leonidas": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/back/dashboard/leonidas/35cb7328-5920-4184-8cab-ed014d323fcb": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/back/dashboard/leonidas/26bdc658-64d1-43a0-a24b-4886d5e48708": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/back/dashboard/leonidas/*/reset/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/back/dashboard/changes/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/configurations/hostconnections/leonidas/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/configurations/groups/leonidas/parents/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/configurations/organisations/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/configurations/instruments/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/configurations/testinstruments/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/configurations/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/back/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/kpitat/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/kpicm/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/kpilst/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/kpiwfl/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/message-stream/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/app/rest/data-pipeline/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/app": "" }
+  },
+  "/oauth/login": {
+    "target": "http://localhost:9090",
+    "secure": false,
+    "changeOrigin": false,
+    "logLevel": "debug"
+  },
+  "/oauth/oauth": {
+    "target": "http://localhost:9090",
+    "secure": false,
+    "changeOrigin": false,
+    "logLevel": "debug"
+  },
+  "/oauth": {
+    "target": "http://localhost:9090",
+    "secure": false,
+    "changeOrigin": false,
+    "logLevel": "debug"
+  },
+  "/assistance/*": {
+    "target": "http://localhost:9001",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/assistance": "" }
+  }
+}

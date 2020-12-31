@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="152" height="96" viewBox="0 0 152 96">
+  <defs>
+    <clipPath id="clip-Dashboard_Card_Background">
+      <rect width="152" height="96"/>
+    </clipPath>
+  </defs>
+  <g id="Dashboard_Card_Background" data-name="Dashboard Card Background" clip-path="url(#clip-Dashboard_Card_Background)">
+    <g id="Grupo_41320" data-name="Grupo 41320">
+      <path id="Rectángulo_9898" data-name="Rectángulo 9898" d="M4,0H148a4,4,0,0,1,4,4V96a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" fill="#efefef"/>
+      <g id="Grupo_38931" data-name="Grupo 38931" transform="translate(18 17)">
+        <rect id="Rectángulo_9701" data-name="Rectángulo 9701" width="118" height="79" transform="translate(0)" fill="#fff"/>
+        <rect id="Rectángulo_9702" data-name="Rectángulo 9702" width="93" height="4" rx="2" transform="translate(12 16)" fill="#efefef"/>
+        <rect id="Rectángulo_9703" data-name="Rectángulo 9703" width="28" height="46" rx="2" transform="translate(12 26.626)" fill="#efefef"/>
+        <rect id="Rectángulo_10481" data-name="Rectángulo 10481" width="28" height="21" rx="2" transform="translate(44.5 26.627)" fill="#efefef"/>
+        <rect id="Rectángulo_10482" data-name="Rectángulo 10482" width="27" height="46" rx="2" transform="translate(78 26.627)" fill="#efefef"/>
+        <rect id="Rectángulo_10767" data-name="Rectángulo 10767" width="28" height="20" rx="2" transform="translate(44.5 52.627)" fill="#efefef"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,83 @@
+.title {
+    margin-top: 21px;
+    margin-left: 16px;
+    color: #000000;
+}
+
+h4 {
+    margin-left: 35px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.actions {
+    padding-bottom: 32px;
+    margin-right: 16px;
+}
+
+.content {
+    color: #333333;
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.back-blue {
+    background-color: #0066CC;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+::ng-deep .mat-button[disabled] {
+    color: #BABABA !important;
+    background-color: #EFEFEF !important;
+    box-shadow: none !important;
+}
+
+::ng-deep .mat-dialog-container {
+    overflow: hidden;
+}
+
+.info-icon {
+    position: absolute;
+    margin-top: 4px;
+}
+
+.error-message-form {
+    color: #CC0033;
+    font-weight: 500;
+}
+
+.red-border-error {
+    border: 2px solid #CC0033 !important;
+}
+
+.form-error {
+    margin-top: -24px;
+    width: 281px;
+    margin-left: 26px;
+    position: absolute;
+    font-weight: 500;
+    color: #CC0033;
+}
+
+input {
+    margin-left: 16px;
+    display: block;
+    border: none;
+    background-color: #EFEFEF;
+    border-radius: 4px;
+    height: 48px;
+    width: 234px;
+    font-size: 14px;
+    color: #737373;
+    padding-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.cancel {
+    background-color: #FAFAFA;
+    border: 1px solid #C4C4C4;
+    color: #333333;
+}

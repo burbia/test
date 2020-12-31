@@ -1,0 +1,30 @@
+.svg-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0 0 0.1%;
+}
+
+.svg-container ::ng-deep svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.card-options {
+    background-color: white;
+    position: fixed;
+    top: 2px;
+    align-content: right;
+    vertical-align: middle;
+    z-index: 1;
+    display: inline-block;
+    width: 100%;
+}
+
+.card-options>span {
+    position: absolute;
+    right: 2px;
+}

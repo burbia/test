@@ -1,0 +1,153 @@
+.select-event-wrapper {
+  .host-title {
+    position: absolute;
+    left: 24px;
+    letter-spacing: 0px;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 1;
+  }
+
+  .required {
+    display: flex;
+    align-items: right;
+    font-weight: 400 !important;
+    padding-top: 5px !important;
+    position: absolute;
+    left: 272;
+  }
+
+  .required-text {
+    margin-right: 5px !important;
+    padding-top: 3px !important;
+  }
+
+  .icon-required {
+    margin-right: 8px;
+  }
+}
+.select-item {
+  left: 400px;
+  width: 611px;
+  height: 95%;
+  border-radius: 4px;
+
+  .item-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 94%;
+    width: 100%;
+  }
+
+  mat-card-header {
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  mat-card {
+    height: 430px !important;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  ::ng-deep .mat-standard-chip {
+    min-width: 24px !important;
+    min-height: 24px !important;
+    padding: 0px 8px !important;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .badged {
+    position: absolute;
+    top: 14px;
+    left: 87px;
+  }
+
+  ::ng-deep .mat-card-header-text {
+    margin: 0px !important;
+    width: 100% !important;
+  }
+
+  mat-checkbox {
+    margin-top: 5px !important;
+  }
+
+  mat-chip-list {
+    padding-top: 5px !important;
+  }
+
+  mat-chip {
+    font-size: 12px !important;
+  }
+
+  mat-card-title {
+    font-size: 14px !important;
+  }
+
+  mat-list-option {
+    font-size: 14px !important;
+  }
+
+  .select-sort-header {
+    background-color: #efefef;
+    cursor: pointer;
+  }
+
+  .host-name-sort-title {
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    font-weight: bolder;
+    position: absolute;
+    left: 16px;
+  }
+  .host-connection-name-sort-title {
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    font-weight: bolder;
+    position: absolute;
+    left: 16px;
+  }
+  .mat-icon-sort-host-name {
+    position: absolute;
+    left: 82px;
+  }
+  .mat-icon-sort-host-connection-name {
+    position: absolute;
+    left: 124px;
+  }
+  .host-name-column-text {
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    font-family: Roboto-Medium, Roboto;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+  .host-connection-name-column-text {
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    font-family: Roboto-Medium, Roboto;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+}

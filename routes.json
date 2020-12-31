@@ -1,0 +1,13 @@
+{
+  "/license": "/license/license",
+  "/rest/back/dashboard/leonidas": "/dashboard",
+  "/rest/back/dashboard/leonidas/:id/reset/now": "/resetnow",
+  "/rest/back/dashboard/leonidas/:id/reset/schedule": "/resetdashboard",
+  "/rest/back/dashboard/leonidas/35cb7328-5920-4184-8cab-ed014d323fcb": "/dashboardReset",
+  "/rest/back/dashboard/changes/*": "/kpis",
+  "/rest/configurations/hostconnections/leonidas": "/hostconnections",
+  "/rest/configurations/groups/leonidas/parents": "/parents",
+  "/rest/configurations/instruments/leonidas": "/instruments",
+  "/rest/configurations/organisations/leonidas": "/organisations",
+  "/rest/configurations/testinstruments/leonidas": "/testinstruments"
+}

@@ -1,0 +1,303 @@
+.hide {
+  visibility: hidden;
+}
+
+.cs-widget {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+.cs-widget-2 {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  vertical-align: top;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+.background {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+.background-2 {
+  display: inline-block;
+  position: absolute;
+  width: 50%;
+  vertical-align: top;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+.progress {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+.progress-2 {
+  display: inline-block;
+  position: absolute;
+  width: 50%;
+  vertical-align: top;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+::ng-deep .progress-bar {
+  fill: #cc0033;
+}
+
+::ng-deep .progress-bar-bg {
+  fill: transparent;
+}
+
+::ng-deep .progress-label {
+  fill: #aaa;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  text-anchor: middle;
+}
+
+.title {
+  margin-top: 8px;
+  margin-left: 8px;
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.title-2 {
+  margin-top: 8px;
+  margin-left: 8px;
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  vertical-align: top;
+}
+
+.instrument-list {
+  position: relative;
+  margin-top: 40%;
+  margin-left: 8px;
+  margin-right: 8px;
+
+  .mat-grid-list {
+    padding: 0;
+
+    .item-container {
+      display: inline-block;
+      position: absolute;
+      width: 100%;
+      vertical-align: top;
+      overflow: hidden;
+      max-width: 640px;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    .odd-item {
+      background-color: #efefef;
+    }
+  }
+}
+
+.instrument-list-2 {
+  position: absolute;
+  top: 8px;
+  width: 50%;
+  right: 0;
+  margin-left: 8px;
+  margin-right: 8px;
+  .item-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .odd-item {
+    background-color: #efefef;
+  }
+}
+
+.instrument-list-2-columns {
+  position: relative;
+  margin-top: 10%;
+  margin-left: 8px;
+  margin-right: 8px;
+
+  .mat-grid-list {
+    padding: 0;
+
+    .item-container {
+      display: inline-block;
+      position: absolute;
+      width: 100%;
+      vertical-align: top;
+      overflow: hidden;
+      max-width: 640px;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    .odd-item {
+      background-color: #efefef;
+    }
+  }
+}
+
+.samples-more {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  max-width: 640px;
+  margin-bottom: 0;
+  bottom: 0;
+}
+
+.change-title {
+  position: absolute;
+  z-index: 100;
+  width: 130px;
+  margin-left: 8px;
+  margin-top: 8px;
+  top: 0;
+  input {
+    background-color: #efefef;
+    border-radius: 4px;
+    border: 2px solid #a5d2ff;
+    width: 92px;
+    font-size: 16px;
+    font-family: Roboto-Medium, Roboto;
+  }
+  mat-icon {
+    cursor: pointer;
+    margin-left: 8px;
+  }
+  form {
+    display: flex;
+  }
+}
+
+.red-border-error {
+  border-bottom: 2px solid #cc0033 !important;
+}
+
+.fill-green {
+  fill: #00875a;
+}
+
+.fill-red {
+  fill: #cc0033;
+}
+
+.fill-blue {
+  fill: #06c;
+}
+
+.fill-white {
+  fill: #fff;
+}
+
+.fill-none {
+  fill: none;
+}
+
+.fill-grey {
+  fill: #cfd1d3;
+}
+
+.instrument-name {
+  font-family: Roboto-Bold, Roboto;
+  fill: #333333;
+  font-size: 14;
+}
+
+.instrument-count {
+  font-size: 16;
+  font-family: Roboto-Bold, Roboto;
+  font-weight: 700;
+}
+
+.instrument-date {
+  font-family: Roboto-Medium, Roboto;
+  fill: #737373;
+  font-size: 14;
+  font-weight: bold;
+}
+
+.connection-text {
+  font-family: Roboto-Medium, Roboto;
+  fill: #848484;
+  font-size: 12;
+  font-weight: 500;
+}
+
+.title-text {
+  fill: #333333;
+  font-family: Roboto-Medium, Roboto;
+  font-size: 16;
+  font-weight: 500;
+}
+
+.cls-4 {
+  isolation: isolate;
+}
+
+.rectangle {
+  height: 24;
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.rectangle-blue {
+  fill: #fff;
+  stroke: #06c;
+  stroke-width: 2px;
+  height: 22;
+}
+
+.loading {
+  fill: none;
+  stroke: #cfd1d3;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-width: 3px;
+}
+.pulse.instrument {
+  animation: pulse-red 2s infinite;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(0.1);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

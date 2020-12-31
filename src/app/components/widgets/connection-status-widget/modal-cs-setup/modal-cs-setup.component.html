@@ -1,0 +1,244 @@
+<mat-toolbar class="toolbar" [class.mat-elevation-z4]="true">
+  <div class="toolbar-wrapper">
+    <mat-icon (click)="dialogRef.close()">close</mat-icon>
+    <p class="title">{{ 'widget-configuration' | translate }} - CNS</p>
+    <mat-icon (click)="launchUserAssistance()" class="info">info_outlined</mat-icon>
+  </div>
+</mat-toolbar>
+<div style="width:100%; display: flex; justify-content: center">
+  <mat-horizontal-stepper labelPosition="bottom" #stepper class="stepper">
+    <ng-template matStepperIcon="edit">
+      <mat-icon>done</mat-icon>
+    </ng-template>
+    <mat-step *ngFor="let step of steps">
+      <ng-template matStepLabel>{{ step.name | translate }}</ng-template>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+<div style="display: flex; align-items: center; justify-content: center">
+  <div class="mat-elevation-z4 modal-container" [ngClass]="{ 'lab-square-setup': stepper.selectedIndex === 1 }">
+    <div *ngIf="stepper.selectedIndex === 0" class="tat-type" (click)="clickOutside = true">
+      <div class="header">
+        <p>
+          {{ 'widget-name-cns' | translate }}
+        </p>
+        <mat-divider></mat-divider>
+      </div>
+      <form [formGroup]="widgetTypeForm">
+        <div class="widget-name">{{ 'widget-name' | translate }}</div>
+        <input
+          required
+          #widgetTitle
+          id="widgetTitle"
+          formControlName="widgetTitle"
+          placeholder="Assign name"
+          [ngClass]="{
+            'red-border-error':
+              (typeForm.widgetTitle.errors?.required || typeForm.widgetTitle.errors?.minlength) &&
+              (typeForm.widgetTitle.dirty || typeForm.widgetTitle.touched || clickOutside)
+          }"
+        />
+        <div class="length-suggestion">{{ 'title-10-characters' | translate }}.</div>
+        <div
+          *ngIf="
+            typeForm.widgetTitle.invalid && (typeForm.widgetTitle.dirty || typeForm.widgetTitle.touched || clickOutside)
+          "
+          class="form-error"
+        >
+          <div *ngIf="typeForm.widgetTitle.errors.required" style="background-color: #fafafa;">
+            {{ 'title-required' | translate }}.
+          </div>
+        </div>
+        <div class="wrapper">
+          <span class="title">{{ 'please-choose-the-cns-type' | translate }}</span>
+          <div
+            class="item"
+            (click)="selectWidgetType('Host')"
+            [class.mat-elevation-z2]="true"
+            [ngClass]="{
+              active: widgetTypeForm.valid,
+              'not-active': !widgetTypeForm.valid,
+              'widget-selected': widgetTypes[0].selected,
+              'item-selected': widgetTypes[0].selected,
+              'first-type': true,
+              'widget-host': true
+            }"
+          >
+            <mat-icon
+              (click)="selectWidgetType('Host')"
+              svgIcon="host-noselected"
+              aria-hidden="false"
+              aria-label="info required"
+              [ngClass]="{
+                'icon-host-noselected': selectedWidgetType !== 'Host',
+                'icon-host-selected': selectedWidgetType === 'Host'
+              }"
+            ></mat-icon>
+            <span [ngClass]="{ 'span-by-host': true, 'active-span': selectedWidgetType === 'Host' }">{{
+              'by-host' | translate
+            }}</span>
+          </div>
+          <div
+            class="item"
+            (click)="selectWidgetType('Instrument')"
+            [class.mat-elevation-z2]="true"
+            [ngClass]="{
+              active: widgetTypeForm.valid,
+              'not-active': !widgetTypeForm.valid,
+              'widget-selected': widgetTypes[1].selected,
+              'item-selected': widgetTypes[1].selected,
+              'first-type': false,
+              'widget-instrument': true
+            }"
+          >
+            <mat-icon
+              (click)="selectWidgetType('Instrument')"
+              svgIcon="instrument-noselected"
+              aria-hidden="false"
+              aria-label="info required"
+              [ngClass]="{
+                'icon-instrument-selected': selectedWidgetType === 'Instrument'
+              }"
+            ></mat-icon>
+            <span
+              [ngClass]="{
+                'span-by-instrument': true,
+                'active-span': selectedWidgetType === 'Instrument'
+              }"
+              >{{ 'by-instrument' | translate }}</span
+            >
+          </div>
+        </div>
+      </form>
+      <div class="slides">
+        <p class="preview-text">{{ 'preview' | translate }}</p>
+        <slideshow [imageUrls]="selectedPreview" height="340px" showDots="true" dotColor="#0066CC"></slideshow>
+      </div>
+    </div>
+
+    <app-select-host
+      *ngIf="stepper.selectedIndex === 1 && selectedWidgetType === 'Host'"
+      [selectedItems]="hostSelected"
+      (onSelectItem)="selectHost($event)"
+      (hasItemsDisabled)="changeIsHostDisabled($event)"
+    ></app-select-host>
+
+    <div *ngIf="stepper.selectedIndex === 1 && selectedWidgetType === 'Instrument'" class="instrument-selection">
+      <div class="header">
+        <p>
+          {{ 'instruments' | translate }}
+        </p>
+        <mat-divider></mat-divider>
+      </div>
+
+      <div class="accordion">
+        <div class="header-row">
+          <mat-checkbox
+            (change)="toggleAllLab($event)"
+            [(ngModel)]="generalLabCheckboxChecked"
+            [(indeterminate)]="generalLabCheckboxIndeterminate"
+            style="font-size: 14px"
+          >
+            {{ 'all-lab' | translate }}</mat-checkbox
+          >
+        </div>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-checkbox
+                  [(ngModel)]="preAnalyticsCheckboxChecked"
+                  (change)="updateFullZone($event, 'PRE-ANALYTIC')"
+                  [(indeterminate)]="preAnalyticsCheckboxIndeterminate"
+                  (click)="$event.stopPropagation()"
+                >
+                  {{ 'pre-analytics' | translate }}</mat-checkbox
+                >
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-selection-list [(ngModel)]="preAnalyticsSelected" (selectionChange)="instrumentSelected()">
+              <mat-list-option *ngFor="let pre of preAnalytics" [value]="pre">
+                {{ pre.instrumentName }}
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-checkbox
+                  [(ngModel)]="analyticsCheckboxChecked"
+                  (change)="updateFullZone($event, 'INSTRUMENT')"
+                  [(indeterminate)]="analyticsCheckboxIndeterminate"
+                  (click)="$event.stopPropagation()"
+                >
+                  {{ 'analytics-others' | translate }}</mat-checkbox
+                >
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-selection-list [(ngModel)]="analyticsSelected" (selectionChange)="instrumentSelected()">
+              <mat-list-option *ngFor="let analytic of analytics" [value]="analytic">
+                {{ analytic.instrumentName }}
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-checkbox
+                  [(ngModel)]="postAnalyticsCheckboxChecked"
+                  (change)="updateFullZone($event, 'POST-ANALYTIC')"
+                  [(indeterminate)]="postAnalyticsCheckboxIndeterminate"
+                  (click)="$event.stopPropagation()"
+                >
+                  {{ 'post-analytics' | translate }}</mat-checkbox
+                >
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-selection-list [(ngModel)]="postAnalyticsSelected" (selectionChange)="instrumentSelected()">
+              <mat-list-option *ngFor="let post of postAnalytics" [value]="post">
+                {{ post.instrumentName }}
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-toolbar class="action-bar" [class.mat-elevation-z4]="true">
+  <div class="next-previous-wrapper">
+    <button
+      aria-labelledby="previous"
+      *ngIf="stepper.selectedIndex !== 0"
+      mat-button
+      class="previous-button"
+      (click)="goStepBack(stepper)"
+    >
+      {{ 'previous' | translate }}
+    </button>
+    <button
+      aria-labelledby="next"
+      *ngIf="stepper.selectedIndex === 0"
+      mat-button
+      class="next-button"
+      (click)="goStepForward(stepper)"
+      [disabled]="!nextButtonEnabled || typeForm.widgetTitle.invalid"
+    >
+      {{ 'next' | translate }}
+    </button>
+    <button
+      aria-labelledby="confirm"
+      *ngIf="stepper.selectedIndex === 1"
+      mat-button
+      class="next-button"
+      (click)="closeSetup()"
+      [disabled]="!setupButtonEnabled"
+    >
+      {{ 'confirm-setup' | translate }}
+    </button>
+  </div>
+</mat-toolbar>

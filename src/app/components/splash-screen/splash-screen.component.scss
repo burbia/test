@@ -1,0 +1,53 @@
+.middle{
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 12%;
+    padding-left: 12%;
+  }
+  #bg {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+  
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  #card{
+    position: fixed;
+    width: 100%;
+    top: 18%;
+    left: 0;
+  }
+
+  .parent{
+    display: table;
+  position: absolute;
+  top: 0;
+  left: -2%;
+  height: 100%;
+  width: 100%;
+    text-align: center;
+  }
+
+
+img{
+    width: 30%;
+}
+p{
+    bottom: 19%;
+    position: absolute;
+    left: 44%;
+    color: #2699FB;
+}
+mat-progress-bar{
+    bottom: 26px;
+    position: absolute;
+    left: 36%;
+    width: 28%;
+    border-radius: 0 0 6px 6px;
+}
+::ng-deep .mat-progress-bar-fill::after {
+    background: #2699FB;
+}

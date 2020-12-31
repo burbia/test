@@ -1,0 +1,72 @@
+.select-item {
+  left: 400px;
+  width: 400px;
+  height: 90%;
+  border-radius: 4px;
+
+  .item-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  .card-header {
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .html-card {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .mat-standard-chip {
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0px 8px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  ::ng-deep .mat-card-header-text {
+    margin: 0px !important;
+    width: 100% !important;
+  }
+
+  .select-item-checkbox {
+    margin-top: 5px;
+  }
+
+  mat-chip-list {
+    padding-top: 5px;
+  }
+
+  mat-chip {
+    font-size: 12px;
+  }
+
+  mat-card-title {
+    font-size: 14px;
+  }
+
+  mat-list-option {
+    font-size: 14px;
+  }
+
+  .required {
+    display: flex;
+    align-items: right;
+    font-weight: 400;
+    padding-top: 5px;
+  }
+
+  .requiredText {
+    margin-right: 5px;
+    padding-top: 3px;
+  }
+}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="63.158" height="60" viewBox="0 0 63.158 60">
+<defs>
+<style>.a,.d{fill:none;}.a,.b{stroke:#737373;}.a{stroke-width:2px;}.b{fill:#737373;}.c{stroke:none;}
+</style>
+</defs>
+<g class="a" transform="translate(0 25.263)">
+    <rect class="c2" width="63.158" height="31.579" rx="3"/>
+    <rect class="d2" x="1" y="1" width="61.158" height="29.579" rx="2"/>
+</g>
+<g class="a" transform="translate(12.632)">
+<path class="c2" d="M3,0H36.474a3,3,0,0,1,3,3V56.842a0,0,0,0,1,0,0H3a3,3,0,0,1-3-3V3A3,3,0,0,1,3,0Z"/>
+<path class="d2" d="M3,1H36.474a2,2,0,0,1,2,2V54.842a1,1,0,0,1-1,1H3a2,2,0,0,1-2-2V3A2,2,0,0,1,3,1Z"/>
+</g><line class="a" y2="55.263" transform="translate(32.368 0.789)"/>
+<g class="a" transform="translate(41.053 33.158)">
+<path class="c2" d="M1,0h9.053a1,1,0,0,1,1,1V23.684a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V1A1,1,0,0,1,1,0Z"/>
+<path class="d2" d="M1,1h9.053a0,0,0,0,1,0,0V21.684a1,1,0,0,1-1,1H2a1,1,0,0,1-1-1V1A0,0,0,0,1,1,1Z"/>
+</g>
+<g class="b" transform="translate(17.368 3.158)">
+<rect class="c2" width="11.053" height="20.526" rx="2"/>
+<rect class="d2" x="0.5" y="0.5" width="10.053" height="19.526" rx="1.5"/>
+</g><g class="b" transform="translate(36.316 3.158)">
+<rect class="c2" width="11.053" height="20.526" rx="2"/>
+<rect class="d2" x="0.5" y="0.5" width="10.053" height="19.526" rx="1.5"/>
+</g>
+<g class="b" transform="translate(3.158 56.263)">
+<path class="c2" d="M0,0H56.842a0,0,0,0,1,0,0V2.737a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V0A0,0,0,0,1,0,0Z"/>
+<rect class="d2" x="0.5" y="0.5" width="55.842" height="2.737" rx="0.5"/>
+</g>
+<line class="a" x2="37.895" transform="translate(13.421 26.053)"/>
+<g class="a" transform="translate(31.5 39)">
+<rect class="c2" width="11.5" height="18"/>
+<rect class="d2" x="1" y="1" width="9.5" height="16"/>
+</g>
+</svg>

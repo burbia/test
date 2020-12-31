@@ -1,0 +1,118 @@
+.select-event-card {
+    width: 312px;
+    border-radius: 4px;
+    border: 1px solid #D3D3D3;
+    box-shadow: none !important;
+    padding-top: 0 !important;
+    mat-card-header {
+        mat-card-title {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #333333;
+        }
+        mat-icon {
+            position: absolute;
+            right: 8px;
+            cursor: pointer;
+            margin-top: -5px;
+            color: #737373;
+        }
+    }
+    mat-card-content {
+        margin-right: -16px;
+        margin-left: -16px;
+        margin-bottom: 0;
+    }
+    mat-selection-list {
+        padding-top: 0;
+    }
+    mat-list-option:hover {
+        background-color: #E9F4FF !important;
+    }
+    mat-card-actions {
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .list-header {
+        background-color: #FAFAFA;
+        color: #333333;
+        font-size: 12px;
+        font-weight: 500;
+        height: 24px;
+        display: flex;
+        padding-left: 28px;
+        align-items: center;
+        border-bottom: 1px solid #D3D3D3;
+    }
+    .instruments-list {
+        border-top: 1px solid #D3D3D3;
+        height: 100%;
+        overflow: auto;
+        width: 344px;
+        .mat-list-item {
+            height: 38px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #333333;
+            ::ng-deep .mat-list-item-content {
+                padding-left: 42px;
+            }
+        }
+    }
+    .general-lab-header {
+        padding-left: 16px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #333333;
+        height: 34px;
+        background-color: #EFEFEF;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #D3D3D3;
+    }
+}
+
+.header {
+    width: 328px;
+    border-radius: 4px;
+    border: 1px solid #D3D3D3;
+    background-color: #FFFFFF;
+    padding-right: 16px;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+    padding-left: 8px;
+    margin-bottom: 0;
+    padding-top: 8px;
+}
+.subtitle {
+    font-size: 11px;
+    font-weight: 500;
+    color: #8A8A8A;
+    padding-left: 8px;
+    line-height: normal;
+}
+
+mat-select {
+    background-color: #EFEFEF;
+    height: 48px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-left: 8px;
+    ::ng-deep .mat-select-trigger {
+        padding-top: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 16px;
+    }
+    ::ng-deep .mat-select-placeholder {
+        font-size: 14px;
+        color: #737373;
+    }
+}

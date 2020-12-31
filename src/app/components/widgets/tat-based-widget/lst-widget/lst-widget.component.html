@@ -1,0 +1,478 @@
+<div class="gridster-item-content change-title">
+  <form [formGroup]="widgetTitleForm">
+    <input
+      required
+      id="inputTitle"
+      formControlName="inputTitle"
+      *ngIf="editTitle"
+      autofocus
+      (keyup.enter)="editTitle = false; updateTitle()"
+      #inputTitle
+      [ngClass]="{
+        'red-border-error':
+          titleForm.inputTitle.errors?.required && (titleForm.inputTitle.dirty || titleForm.inputTitle.touched)
+      }"
+    />
+    <mat-icon *ngIf="editTitle" (click)="editTitle = false">highlight_off</mat-icon>
+  </form>
+</div>
+<div *ngIf="configuration">
+  <div class="title" *ngIf="numXVersion === 1">
+    <svg viewBox="0 0 160 27" preserveAspectRatio="xMidYMid meet">
+      <text
+        x="0"
+        y="15"
+        fill="#333333"
+        font-family="Roboto-Medium, Roboto"
+        font-size="16"
+        font-weight="500"
+        *ngIf="!editTitle && configuration"
+        (click)="editTitle = true; focusInput()"
+      >
+        {{ configuration.title }}
+      </text>
+    </svg>
+  </div>
+
+  <div class="title" *ngIf="numXVersion === 2">
+    <svg viewBox="0 0 320 27" preserveAspectRatio="xMidYMid meet">
+      <text
+        x="0"
+        y="15"
+        fill="#333333"
+        font-family="Roboto-Medium, Roboto"
+        font-size="16"
+        font-weight="500"
+        *ngIf="!editTitle && configuration"
+        (click)="editTitle = true; focusInput()"
+      >
+        {{ configuration.title }}
+      </text>
+    </svg>
+  </div>
+
+  <svg *ngIf="exceedsCounter !== '0'" class="excluded-chip" preserveAspectRatio="xMidYMid meet" viewBox="0 0 316 20">
+    <g
+      id="LST_Chip_-_Excluided_bar"
+      data-name="LST Chip - Excluided bar"
+      clip-path="url(#clip-LST_Chip_-_Excluided_bar)"
+    >
+      <g id="Grupo_40560" data-name="Grupo 40560" transform="translate(-11999 -7220)">
+        <g id="Grupo_40499" data-name="Grupo 40499" transform="translate(12315.461 7219.5) rotate(90)">
+          <rect
+            id="Rectángulo_10281"
+            data-name="Rectángulo 10281"
+            width="316"
+            height="20"
+            rx="10"
+            transform="translate(0.5 316.461) rotate(-90)"
+            fill="#d3d3d3"
+          />
+          <text
+            id="_5"
+            data-name="5"
+            transform="translate(15.5 160.461) rotate(-90)"
+            font-size="14"
+            font-family="Roboto-Bold, Roboto"
+            font-weight="700"
+            letter-spacing="0.01em"
+          >
+            <tspan x="-4.016" y="0">{{ exceedsCounter }}</tspan>
+          </text>
+          <g id="baseline-snooze-24px" transform="translate(1.5 189.961) rotate(-90)">
+            <path id="Trazado_30602" data-name="Trazado 30602" d="M0,0H18V18H0Z" fill="none" />
+            <path
+              id="Trazado_30603"
+              data-name="Trazado 30603"
+              d="M6.312,2.983,5.373,1.86,2,4.686l.946,1.123L6.312,2.983Zm10.355,1.71L13.293,1.86l-.946,1.123,3.373,2.833ZM9.333,3.431a6.606,6.606,0,1,0,6.6,6.606A6.6,6.6,0,0,0,9.333,3.431Zm0,11.744a5.138,5.138,0,1,1,5.133-5.138A5.132,5.132,0,0,1,9.333,15.175Z"
+              transform="translate(-0.5 -0.31)"
+            />
+            <path
+              id="Trazado_30607"
+              data-name="Trazado 30607"
+              d="M0,0V5L4.167,2.5Z"
+              transform="translate(6.5 11.083) rotate(-90)"
+            />
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+
+  <div class="sample-count">
+    <mat-grid-list cols="2" rowHeight="8:1" gutterSize="4px" *ngIf="errorsCounter !== '0' && warningsCounter !== '0'">
+      <mat-grid-tile class="alert">
+        <svg viewBox="0 0 20 20" style="width: 100%; height: 100%" preserveAspectRatio="xMidYMid meet">
+          <text
+            x="0"
+            y="15"
+            fill="#FFFFFF"
+            font-family="Roboto-Medium, Roboto"
+            font-size="16"
+            font-weight="500"
+            *ngIf="configuration"
+          >
+            {{ errorsCounter }}
+          </text>
+        </svg>
+      </mat-grid-tile>
+      <mat-grid-tile class="warning">
+        <svg viewBox="0 0 20 20" style="width: 100%; height: 100%" preserveAspectRatio="xMidYMid meet">
+          <text
+            x="0"
+            y="15"
+            fill="#333333"
+            font-family="Roboto-Medium, Roboto"
+            font-size="16"
+            font-weight="500"
+            *ngIf="configuration"
+          >
+            {{ warningsCounter }}
+          </text>
+        </svg>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list
+      cols="1"
+      rowHeight="16:1"
+      gutterSize="4px"
+      *ngIf="(warningsCounter === '0' && !showOk) || (errorsCounter === '0' && !showOk) || showOk"
+    >
+      <mat-grid-tile class="only-alert" *ngIf="warningsCounter === '0' && !showOk">
+        <svg viewBox="0 0 20 20" style="width: 100%; height: 100%" preserveAspectRatio="xMidYMid meet">
+          <text
+            x="0"
+            y="15"
+            fill="#FFFFFF"
+            font-family="Roboto-Medium, Roboto"
+            font-size="16"
+            font-weight="500"
+            *ngIf="configuration"
+          >
+            {{ errorsCounter }}
+          </text>
+        </svg>
+      </mat-grid-tile>
+      <mat-grid-tile class="only-warning" *ngIf="errorsCounter === '0' && !showOk">
+        <svg viewBox="0 0 20 20" style="width: 100%; height: 100%" preserveAspectRatio="xMidYMid meet">
+          <text
+            x="0"
+            y="15"
+            fill="#333333"
+            font-family="Roboto-Medium, Roboto"
+            font-size="16"
+            font-weight="500"
+            *ngIf="configuration"
+          >
+            {{ warningsCounter }}
+          </text>
+        </svg>
+      </mat-grid-tile>
+      <mat-grid-tile class="only-ok" *ngIf="showOk"></mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div class="alert-list" *ngIf="alerts?.length !== 0 && numXVersion === 1">
+    <mat-grid-list cols="1" rowHeight="5:1">
+      <div *ngFor="let event of shownAlerts; last as last" #alertsElem id="{{ event.sampleId }}">
+        <mat-grid-tile>
+          <div class="item-container">
+            <svg
+              id="Group_41288"
+              data-name="Group 41288"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 160 37"
+            >
+              <g id="Group_40504" data-name="Group 40504" transform="translate(0)">
+                <g id="Group_40378" data-name="Group 40378">
+                  <rect
+                    id="Rectangle_10283"
+                    data-name="Rectangle 10283"
+                    width="160"
+                    height="37"
+                    fill="#fff"
+                    opacity="0"
+                  />
+                </g>
+                <g id="Group_40505" data-name="Group 40505" transform="translate(7.603 3.001)">
+                  <text
+                    id="_1234567891"
+                    data-name="1234567891"
+                    transform="translate(0.026 13)"
+                    fill="#333"
+                    font-size="14"
+                    font-family="Roboto-Bold, Roboto"
+                    font-weight="700"
+                  >
+                    <tspan x="0" y="-2">{{ event.sampleId }}</tspan>
+                  </text>
+                  <text
+                    id="Fridge_55666777"
+                    data-name="Fridge 55666777"
+                    transform="translate(0 27.084)"
+                    fill="#333"
+                    font-size="12"
+                    font-family="Roboto-Regular, Roboto"
+                  >
+                    <tspan x="0" y="-2">{{ event.instrumentName }}</tspan>
+                  </text>
+                </g>
+                <text
+                  id="_1_"
+                  data-name="1’"
+                  transform="translate(176.552 22.955)"
+                  fill="#333"
+                  font-size="16"
+                  font-family="Roboto-Bold, Roboto"
+                  font-weight="700"
+                  direction="rtl"
+                >
+                  <tspan x="-18.852" y="0">’ {{ event.time | secondsToMinutes }}+</tspan>
+                </text>
+              </g>
+            </svg>
+          </div>
+          <mat-divider *ngIf="!last" class="divider"></mat-divider>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
+  <div class="alert-list" *ngIf="alerts?.length !== 0 && numXVersion === 2">
+    <mat-grid-list cols="1" rowHeight="9:1">
+      <div *ngFor="let event of shownAlerts; last as last" #alertsElem id="{{ event.sampleId }}">
+        <mat-grid-tile>
+          <div class="item-container">
+            <svg
+              id="Group_41288"
+              data-name="Group 41288"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 312 37"
+            >
+              <g id="Group_40504" data-name="Group 40504" transform="translate(0)">
+                <g id="Group_40378" data-name="Group 40378">
+                  <rect
+                    id="Rectangle_10283"
+                    data-name="Rectangle 10283"
+                    width="312"
+                    height="37"
+                    fill="#fff"
+                    opacity="0"
+                  />
+                </g>
+                <g id="Group_40505" data-name="Group 40505" transform="translate(7.603 3.001)">
+                  <text
+                    id="_1234567891"
+                    data-name="1234567891"
+                    transform="translate(0.026 13)"
+                    fill="#333"
+                    font-size="14"
+                    font-family="Roboto-Bold, Roboto"
+                    font-weight="700"
+                  >
+                    <tspan x="0" y="0">{{ event.sampleId }}</tspan>
+                  </text>
+                  <text
+                    id="Fridge_55666777"
+                    data-name="Fridge 55666777"
+                    transform="translate(0 27.084)"
+                    fill="#333"
+                    font-size="12"
+                    font-family="Roboto-Regular, Roboto"
+                  >
+                    <tspan x="0" y="0">{{ event.instrumentName }}</tspan>
+                  </text>
+                </g>
+                <text
+                  id="_1_"
+                  data-name="1’"
+                  transform="translate(316.552 22.955)"
+                  fill="#333"
+                  font-size="16"
+                  font-family="Roboto-Bold, Roboto"
+                  font-weight="700"
+                  direction="rtl"
+                >
+                  <tspan x="-12.852" y="0">’ {{ event.time | secondsToMinutes }}+</tspan>
+                </text>
+              </g>
+            </svg>
+          </div>
+          <mat-divider *ngIf="!last" class="divider"></mat-divider>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
+  <div *ngIf="shownAlerts.length !== 0 && shownWarnings.length !== 0">
+    <mat-divider class="center-divider"></mat-divider>
+  </div>
+  <div class="warning-list" *ngIf="!(shownAlerts.length >= maxItems) && warnings?.length !== 0 && numXVersion === 1">
+    <mat-grid-list cols="1" rowHeight="5:1">
+      <mat-grid-tile *ngFor="let event of shownWarnings; last as last">
+        <div #warningsElem id="{{ event.sampleId }}" class="item-container"></div>
+        <div class="item-container">
+          <svg
+            id="Group_41288"
+            data-name="Group 41288"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 160 37"
+          >
+            <g id="Group_40504" data-name="Group 40504" transform="translate(0)">
+              <g id="Group_40378" data-name="Group 40378">
+                <rect
+                  id="Rectangle_10283"
+                  data-name="Rectangle 10283"
+                  width="160"
+                  height="37"
+                  fill="#fff"
+                  opacity="0"
+                />
+              </g>
+              <g id="Group_40505" data-name="Group 40505" transform="translate(7.603 3.001)">
+                <text
+                  id="_1234567891"
+                  data-name="1234567891"
+                  transform="translate(0.026 13)"
+                  fill="#333"
+                  font-size="14"
+                  font-family="Roboto-Bold, Roboto"
+                  font-weight="700"
+                >
+                  <tspan x="0" y="-2">{{ event.sampleId }}</tspan>
+                </text>
+                <text
+                  id="Fridge_55666777"
+                  data-name="Fridge 55666777"
+                  transform="translate(0 27.084)"
+                  fill="#333"
+                  font-size="12"
+                  font-family="Roboto-Regular, Roboto"
+                >
+                  <tspan x="0" y="-2">{{ event.instrumentName }}</tspan>
+                </text>
+              </g>
+              <text
+                id="_1_"
+                data-name="1’"
+                transform="translate(176.552 22.955)"
+                fill="#333"
+                font-size="16"
+                font-family="Roboto-Bold, Roboto"
+                font-weight="700"
+                direction="rtl"
+              >
+                <tspan x="-18.852" y="0">’ {{ event.time | secondsToMinutes }}</tspan>
+              </text>
+            </g>
+          </svg>
+        </div>
+
+        <mat-divider *ngIf="!last" class="divider"></mat-divider>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div class="warning-list" *ngIf="!(shownAlerts.length >= maxItems) && warnings?.length !== 0 && numXVersion === 2">
+    <mat-grid-list cols="1" rowHeight="9:1">
+      <mat-grid-tile *ngFor="let event of shownWarnings; last as last">
+        <div #warningsElem id="{{ event.sampleId }}" class="item-container"></div>
+        <div class="item-container">
+          <svg
+            id="Group_41288"
+            data-name="Group 41288"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 312 37"
+          >
+            <g id="Group_40504" data-name="Group 40504" transform="translate(0)">
+              <g id="Group_40378" data-name="Group 40378">
+                <rect
+                  id="Rectangle_10283"
+                  data-name="Rectangle 10283"
+                  width="312"
+                  height="37"
+                  fill="#fff"
+                  opacity="0"
+                />
+              </g>
+              <g id="Group_40505" data-name="Group 40505" transform="translate(7.603 3.001)">
+                <text
+                  id="_1234567891"
+                  data-name="1234567891"
+                  transform="translate(0.026 13)"
+                  fill="#333"
+                  font-size="14"
+                  font-family="Roboto-Bold, Roboto"
+                  font-weight="700"
+                >
+                  <tspan x="0" y="0">{{ event.sampleId }}</tspan>
+                </text>
+                <text
+                  id="Fridge_55666777"
+                  data-name="Fridge 55666777"
+                  transform="translate(0 27.084)"
+                  fill="#333"
+                  font-size="12"
+                  font-family="Roboto-Regular, Roboto"
+                >
+                  <tspan x="0" y="0">{{ event.instrumentName }}</tspan>
+                </text>
+              </g>
+              <text
+                id="_1_"
+                data-name="1’"
+                transform="translate(316.552 22.955)"
+                fill="#333"
+                font-size="16"
+                font-family="Roboto-Bold, Roboto"
+                font-weight="700"
+                direction="rtl"
+              >
+                <tspan x="-12.852" y="0">’ {{ event.time | secondsToMinutes }}</tspan>
+              </text>
+            </g>
+          </svg>
+        </div>
+
+        <mat-divider *ngIf="!last" class="divider"></mat-divider>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div class="ok-list" *ngIf="showOk">
+    <img alt="LST" src="assets/images/LST_Ok.svg" />
+  </div>
+  <div class="samples-more" *ngIf="!showOk && numXVersion === 1">
+    <svg viewBox="0 0 215 18" preserveAspectRatio="xMidYMid meet">
+      <text
+        x="110"
+        y="15"
+        text-anchor="middle"
+        fill="#333333"
+        font-family="Roboto-Medium, Roboto"
+        fill="#BABABA"
+        font-size="12"
+        font-weight="500"
+        *ngIf="configuration"
+      >
+        {{ extraSamples }} {{ 'samples-more' | translate }}
+      </text>
+    </svg>
+  </div>
+  <div class="samples-more" *ngIf="!showOk && numXVersion === 2">
+    <svg viewBox="0 0 332 18" preserveAspectRatio="xMidYMid meet">
+      <text
+        x="160"
+        y="15"
+        text-anchor="middle"
+        fill="#333333"
+        font-family="Roboto-Medium, Roboto"
+        fill="#BABABA"
+        font-size="12"
+        font-weight="500"
+        *ngIf="configuration"
+      >
+        {{ extraSamples }} {{ 'samples-more' | translate }}
+      </text>
+    </svg>
+  </div>
+</div>

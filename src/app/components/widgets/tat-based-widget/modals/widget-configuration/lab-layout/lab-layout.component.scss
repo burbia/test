@@ -1,0 +1,129 @@
+mat-card {
+    margin: 20px;
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+    padding-top: 13px;
+    height: 72%;
+}
+
+.mat-grid-list {
+    background-size: 24px 24px;
+    background-image: linear-gradient(to right, #EFEFEF 1px, transparent 1px), linear-gradient(to bottom, #EFEFEF 1px, transparent 1px);
+}
+
+.grid-container {
+    border: 2px solid #EFEFEF;
+    margin-left: 24px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    height: 86%;
+    position: relative;
+    margin-right: 24px;
+    margin-top: 24px;
+}
+
+mat-card-header {
+    justify-content: center;
+
+    mat-card-title {
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #333333;
+    }
+
+    mat-icon {
+        position: absolute;
+        right: 8px;
+        cursor: pointer;
+        margin-top: -5px;
+    }
+
+    mat-checkbox {
+        position: absolute;
+        left: 11px;
+        margin-right: 11px;
+        margin-top: -5px;
+    }
+}
+
+mat-list-option:hover {
+    background-color: #E9F4FF !important;
+}
+
+mat-list-option[aria-selected="true"] {
+    background: #D1E8FF;
+    border-left: 4px solid #0066CC;
+  }
+
+.instrument {
+    display: flex;
+    align-items: center;
+    height: 38px;
+    mat-checkbox{
+        margin-left: 24px;
+    }
+    .titles {
+        margin-left: 12px;
+        .title {
+            font-size: 10px;
+            color: #333333;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            height: 15px;
+        }
+    }
+}
+
+.instrument-list {
+    position: absolute;
+    height: 87%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+::ng-deep .mat-list-item-content {
+    width: 100%;
+}
+
+mat-grid-list {
+    ::ng-deep .mat-grid-tile .mat-figure {
+        align-items: end;
+    }
+}
+
+mat-select {
+    background-color: #EFEFEF;
+    height: 48px;
+    border-radius: 4px;
+
+    ::ng-deep .mat-select-trigger {
+        padding-top: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 16px;
+    }
+
+    ::ng-deep .mat-select-placeholder {
+        font-size: 14px;
+        color: #737373;
+    }
+}
+
+.selected {
+    background-color: #D1E8FF; 
+}
+
+.selected-border {
+    width: 4px;
+    background-color: #0066cc;
+    position: absolute;
+    height: 100%;
+    left: 0;
+}

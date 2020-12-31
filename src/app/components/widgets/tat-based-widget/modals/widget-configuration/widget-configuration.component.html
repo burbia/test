@@ -1,0 +1,631 @@
+<mat-toolbar class="toolbar" [class.mat-elevation-z4]="true">
+  <div class="toolbar-wrapper">
+    <mat-icon class="close" (click)="dialogRef.close()">close</mat-icon>
+    <p class="title">{{ 'widget-configuration' | translate }} - {{ data.widget }}</p>
+    <mat-icon (click)="launchUserAssistance()" class="info">info_outlined</mat-icon>
+  </div>
+</mat-toolbar>
+
+<div class="breadcrumb" *ngIf="!chooseType" [style.transform]="'scale(' + zoomValue + ')'">
+  <div (click)="goToChooseType(); stepper.reset()">{{ data.widget }} {{ 'type' | translate }}</div>
+  <div class="gth">></div>
+  <span>{{ selectedWidgetType | translate | titlecase }}</span>
+</div>
+<div style="width:100%; display: flex; justify-content: center">
+  <mat-horizontal-stepper labelPosition="bottom" #stepper class="stepper">
+    <ng-template matStepperIcon="edit">
+      <mat-icon>done</mat-icon>
+    </ng-template>
+    <mat-step *ngFor="let step of steps" [completed]="false">
+      <ng-template matStepLabel>{{ step.name | translate }}</ng-template>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <div class="mat-elevation-z4 lab-square" [ngStyle]="{ 'margin-top': !chooseType ? '108px' : '48px' }">
+    <div *ngIf="chooseType" style="height: 100%; border-radius: 4px;">
+      <div class="header">
+        <div class="text" *ngIf="data.widget === 'TAT'">
+          {{ 'tat-widget-type' | translate }}
+        </div>
+        <div class="text" *ngIf="data.widget === 'LST'">
+          {{ 'lst-widget-type' | translate }}
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+
+      <div class="tat-type" (click)="clickOutside = true">
+        <form [formGroup]="widgetTypeForm">
+          <div class="widget-name">{{ 'widget-name' | translate }}</div>
+          <input
+            required
+            #widgetTitle
+            id="widgetTitle"
+            formControlName="widgetTitle"
+            placeholder="Assign name"
+            [ngClass]="{
+              'red-border-error':
+                typeForm.widgetTitle.errors?.required &&
+                (typeForm.widgetTitle.dirty || typeForm.widgetTitle.touched || clickOutside)
+            }"
+          />
+          <div class="length-suggestion">{{ 'title-10-characters' | translate }}.</div>
+          <div
+            *ngIf="
+              typeForm.widgetTitle.invalid &&
+              (typeForm.widgetTitle.dirty || typeForm.widgetTitle.touched || clickOutside)
+            "
+            class="form-error"
+          >
+            <div *ngIf="typeForm.widgetTitle.errors.required" style="background-color: #fafafa;">
+              {{ 'title-required' | translate }}.
+            </div>
+          </div>
+          <div *ngIf="data.widget === 'TAT'" class="title">{{ 'please-choose-the-tat-type' | translate }}</div>
+          <div *ngIf="data.widget === 'LST'" class="title">{{ 'please-choose-the-lst-type' | translate }}</div>
+          <div class="wrapper">
+            <div
+              class="item"
+              *ngFor="let widget of widgetTypes; let first = first"
+              (click)="selectWidgetType(widget.name, stepper)"
+              [class.mat-elevation-z2]="true"
+              [ngClass]="{
+                active: widgetTypeForm.valid,
+                'not-active': !widgetTypeForm.valid,
+                'widget-selected': widget.selected,
+                'first-type': first
+              }"
+            >
+              <div class="icon" *ngIf="widget.name === 'Sample'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.5 64.5">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        opacity: 0;
+                      }
+
+                      .cls-2 {
+                        fill: #737373;
+                      }
+                    </style>
+                  </defs>
+                  <g id="Layer_2" data-name="Layer 2">
+                    <g id="BOUND_BOX" data-name="BOUND BOX">
+                      <g class="cls-1">
+                        <path d="M64.25.25v64H.25V.25h64M64.5,0H0V64.5H64.5V0Z" />
+                      </g>
+                    </g>
+                    <g id="GUIDES">
+                      <path
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        d="M38.8,5.25H25.71A2.46,2.46,0,0,0,23.25,7.7V9.8a2.46,2.46,0,0,0,2,2.4V52.25a7,7,0,0,0,14,0v-40a2.45,2.45,0,0,0,2-2.4V7.7A2.45,2.45,0,0,0,38.8,5.25Zm-1.55,47a5,5,0,0,1-10,0v-40h10Zm2-42.45a.45.45,0,0,1-.45.45H25.71a.46.46,0,0,1-.46-.45V7.7a.46.46,0,0,1,.46-.45H38.8a.45.45,0,0,1,.45.45Z"
+                      />
+                      <path
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        d="M32.25,55.25a3,3,0,0,0,3-3v-18a1,1,0,0,0-1-1h-4a1,1,0,0,0-1,1v18A3,3,0,0,0,32.25,55.25Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <mat-divider vertical="true" class="widget-type-divider"></mat-divider>
+              <div class="icon" *ngIf="widget.name === 'Test'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.5 64.5">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        opacity: 0;
+                      }
+
+                      .cls-2 {
+                        fill: #737373;
+                      }
+                    </style>
+                  </defs>
+                  <g id="Layer_2" data-name="Layer 2">
+                    <g id="BOUND_BOX" data-name="BOUND BOX">
+                      <g class="cls-1">
+                        <path d="M64.25.25v64H.25V.25h64M64.5,0H0V64.5H64.5V0Z" />
+                      </g>
+                    </g>
+                    <g id="GUIDES">
+                      <path
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        d="M43,38.28a19.33,19.33,0,0,1-3.71-11.41V13.2a2.45,2.45,0,0,0,2-2.4V8.7A2.45,2.45,0,0,0,38.8,6.25H25.71A2.46,2.46,0,0,0,23.25,8.7v2.1a2.46,2.46,0,0,0,2,2.4V26.86a19.24,19.24,0,0,1-3.71,11.41l-6,8.31A8,8,0,0,0,22,59.25h20.6A8,8,0,0,0,49,46.58ZM25.25,8.7a.46.46,0,0,1,.46-.45H38.8a.45.45,0,0,1,.45.45v2.1a.45.45,0,0,1-.45.45H25.71a.46.46,0,0,1-.46-.45ZM47.88,54a5.89,5.89,0,0,1-5.33,3.26H22a6,6,0,0,1-4.83-9.49l6-8.31a21.24,21.24,0,0,0,4.09-12.59V13.25h10V26.87a21.29,21.29,0,0,0,4.1,12.59l6,8.3A5.88,5.88,0,0,1,47.88,54Z"
+                      />
+                      <path
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        d="M36.87,36.13a4.37,4.37,0,0,0-3.6-1.88h-2a4.37,4.37,0,0,0-3.59,1.88L19.13,48.37a4.38,4.38,0,0,0,3.59,6.88H41.78a4.38,4.38,0,0,0,3.6-6.88Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="icon" *ngIf="widget.name === 'Instrument'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.5 64.5">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        opacity: 0;
+                      }
+
+                      .cls-2 {
+                        fill: #737373;
+                      }
+                    </style>
+                  </defs>
+                  <g id="Layer_2" data-name="Layer 2">
+                    <g id="BOUND_BOX" data-name="BOUND BOX">
+                      <g class="cls-1">
+                        <path d="M64.25.25v64H.25V.25h64M64.5,0H0V64.5H64.5V0Z" />
+                      </g>
+                    </g>
+                    <g id="GUIDES">
+                      <rect
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        x="19.25"
+                        y="11.25"
+                        width="10"
+                        height="17"
+                        rx="3"
+                      />
+                      <rect
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        x="35.25"
+                        y="11.25"
+                        width="10"
+                        height="17"
+                        rx="3"
+                      />
+                      <path
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        d="M57.25,29.25h-8v-19a3,3,0,0,0-3-3h-28a3,3,0,0,0-3,3v19h-8a3,3,0,0,0-3,3v24a1,1,0,0,0,1,1h1v2a1,1,0,0,0,1,1h50a1,1,0,0,0,1-1v-2h1a1,1,0,0,0,1-1v-24A3,3,0,0,0,57.25,29.25Zm-16,14v-4h6v16h-6Zm-2,12h-6v-11h6Zm8-18h-7a1,1,0,0,0-1,1v4H33.19v-10H47.25Zm-16.06,18H17.25v-23H31.19Zm16.06-45v20H33.19v-21H46.24A1,1,0,0,1,47.25,10.26Zm-29-1H31.19v21H17.25v-20A1,1,0,0,1,18.26,9.25Zm-12,23a1,1,0,0,1,1-1h7v24h-8Zm52,23h-8v-24h7a1,1,0,0,1,1,1Z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="icon" *ngIf="widget.name === 'Validation'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.5 64.5">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        opacity: 0;
+                      }
+
+                      .cls-2 {
+                        fill: #737373;
+                      }
+                    </style>
+                  </defs>
+                  <g id="Layer_2" data-name="Layer 2">
+                    <g id="BOUND_BOX" data-name="BOUND BOX">
+                      <g class="cls-1">
+                        <path d="M64.25.25v64H.25V.25h64M64.5,0H0V64.5H64.5V0Z" />
+                      </g>
+                    </g>
+                    <g id="GUIDES">
+                      <path
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        d="M21,30a1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29L31,21.38A1,1,0,0,0,29.62,20l-7.87,7.88L19,25.05a1,1,0,0,0-1.41,1.41Z"
+                      />
+                      <path
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        d="M49.25,9.25h-4v-1a4,4,0,0,0-4-4h-18a4,4,0,0,0-4,4v1h-4a4,4,0,0,0-4,4v43a4,4,0,0,0,4,4h34a4,4,0,0,0,4-4v-43A4,4,0,0,0,49.25,9.25Zm2,47a2,2,0,0,1-2,2h-34a2,2,0,0,1-2-2v-43a2,2,0,0,1,2-2H19.4a4,4,0,0,0,3.85,3h18a4,4,0,0,0,3.86-3h4.14a2,2,0,0,1,2,2Z"
+                      />
+                      <rect
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        x="17.25"
+                        y="35.25"
+                        width="29"
+                        height="3"
+                        rx="1"
+                      />
+                      <rect
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        x="31.25"
+                        y="23.25"
+                        width="16"
+                        height="3"
+                        rx="1"
+                      />
+                      <rect
+                        [ngClass]="{
+                          'icon-disabled': !widgetTypeForm.valid,
+                          'cls-2': widgetTypeForm.valid,
+                          'icon-selected': widget.selected
+                        }"
+                        x="17.25"
+                        y="46.25"
+                        width="29"
+                        height="3"
+                        rx="1"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="text">
+                <span *ngIf="widget.name === 'Test'">{{ 'by-test' | translate }}</span>
+                <span *ngIf="widget.name === 'Instrument'">{{ 'by-instrument' | translate }}</span>
+                <span *ngIf="widget.name === 'Validation'">{{ 'by-validation' | translate }}</span>
+                <span *ngIf="widget.name === 'Sample'">{{ 'Sample' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      *ngIf="
+        ((stepOrder === 0 && stepper.selectedIndex === 2) || (stepOrder === 1 && stepper.selectedIndex === 1)) &&
+        !chooseType
+      "
+      class="events"
+    >
+      <div class="header">
+        <div class="text">
+          {{ 'select-events' | translate }}
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="select-event-wrapper">
+        <app-select-event
+          class="initial-event-card"
+          title="Starting event"
+          [instruments]="instrumentsSelected"
+          [instrumentsRecover]="startEventSelected?.instrumentsId"
+          [eventRecover]="startEventSelected?.eventType"
+          (onSelectValue)="selectStartEvent($event)"
+          [widgetType]="selectedWidgetType"
+          moment="initial"
+        >
+        </app-select-event>
+        <app-select-event
+          class="final-event-card"
+          title="Ending event"
+          [instruments]="instrumentsSelected"
+          [instrumentsRecover]="finalEventSelected?.instrumentsId"
+          [eventRecover]="finalEventSelected?.eventType"
+          (onSelectValue)="selectFinalEvent($event)"
+          [widgetType]="selectedWidgetType"
+          moment="final"
+        >
+        </app-select-event>
+      </div>
+    </div>
+    <div
+      *ngIf="
+        ((stepOrder === 0 && stepper.selectedIndex === 1) || (stepOrder === 1 && stepper.selectedIndex === 0)) &&
+        !chooseType
+      "
+      class="instrument-filter"
+    >
+      <div class="header">
+        <div class="text">
+          {{ 'select-instruments' | translate }}
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <app-lab-layout [selectedInstruments]="instrumentsSelected" (onSelectInstrument)="selectInstruments($event)">
+      </app-lab-layout>
+    </div>
+    <div
+      class="test-component-wrapper"
+      *ngIf="
+        ((stepOrder === 0 && stepper.selectedIndex === 0) || (stepOrder === 1 && stepper.selectedIndex === 2)) &&
+        !chooseType
+      "
+    >
+      <app-tat-browse-test [selectedTestRecover]="selectedTests" (onSelectTest)="selectTests($event)">
+      </app-tat-browse-test>
+    </div>
+
+    <div *ngIf="stepper.selectedIndex === 3 && !chooseType">
+      <div class="header">
+        <div class="text">
+          {{ (data.widget === 'TAT' ? 'priority-filtering' : 'demographic-filtering') | translate }}
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="select-event-wrapper">
+        <mat-grid-list cols="{{ data.widget === 'TAT' || !isDemographicsConfigure ? 1 : 2 }}" rowHeight="507px">
+          <mat-grid-tile>
+            <app-select-priority
+              [selectedItems]="prioritySelected"
+              (onSelectItem)="selectPriority($event)"
+            ></app-select-priority>
+          </mat-grid-tile>
+          <mat-grid-tile *ngIf="data.widget === 'LST' && isDemographicsConfigure">
+            <app-select-demographic
+              [heightSelect]="heightSelect"
+              [heightPercent]="heightPercent"
+              [selectedItems]="demographicSelected"
+              (onSelectItem)="selectDemographic($event)"
+              (hasValues)="changeIsDemographicsConfigure($event)"
+              (hasItemsDisabled)="changeIsDemographicsDisabled($event)"
+            ></app-select-demographic>
+            <mat-toolbar class="demographic-user-alert" *ngIf="showAllDemograpchicSelected">
+              <mat-icon
+                class="icon-required-demographic-all"
+                svgIcon="info-required-demographic-all"
+                aria-hidden="false"
+                aria-label="info required"
+              ></mat-icon>
+              <span>{{ 'user-alert-all-demographics' | translate }}</span></mat-toolbar
+            >
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+
+    <div *ngIf="stepper.selectedIndex === 4" class="setup">
+      <div class="header">
+        <div class="text">
+          {{ 'select-alert-warning' | translate }}
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="setup-wrapper">
+        <form [formGroup]="widgetSetupForm" (keydown.enter)="$event.preventDefault()">
+          <div class="form-wrapper">
+            <div class="label-form">
+              <mat-chip-list class="alert-chip-list">
+                <mat-chip class="alert-chip">{{ 'alert' | translate }}</mat-chip>
+              </mat-chip-list>
+              <label
+                ><span>{{ 'pre-alert-alarm' | translate }} ({{ 'optional' | translate }})</span>
+                <p class="optional">{{ 'minutes-before-target' | translate }}</p>
+              </label>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input
+                required
+                class="input-time-form"
+                type="number"
+                id="targetH"
+                formControlName="targetH"
+                placeholder="Hours"
+                min="0"
+                (keypress)="omit_symbols($event)"
+              />:
+              <input
+                required
+                #targetM
+                class="input-time-form"
+                style="margin-left: 10px;"
+                type="number"
+                id="targetM"
+                formControlName="targetM"
+                placeholder="Minutes"
+                (blur)="updateTime('targetH', 'targetM', targetM.value)"
+                min="0"
+                (keypress)="omit_symbols($event)"
+              />
+              <mat-divider vertical="true" class="alert-divider"></mat-divider>
+              <input
+                #targetAlertM
+                [ngClass]="{
+                  'red-border-error':
+                    widgetSetupForm.errors?.preAlertInvalid2 || widgetSetupForm.errors?.preAlertInvalid
+                }"
+                class="input-time-form"
+                type="number"
+                id="targetAlertM"
+                formControlName="targetAlertM"
+                placeholder="Minutes"
+                min="0"
+                (keypress)="omit_symbols($event)"
+              />
+            </div>
+            <div class="setup-errors">
+              <div *ngIf="widgetSetupForm.errors?.preAlertInvalid" class="error-message-form">
+                {{ 'pre-alert-error-1' | translate }}
+              </div>
+              <div *ngIf="widgetSetupForm.errors?.preAlertInvalid2" class="error-message-form">
+                {{ 'pre-alert-error-2' | translate }}
+              </div>
+            </div>
+
+            <mat-divider class="form-divider"></mat-divider>
+            <label class="label-form">
+              <mat-chip-list class="warning-chip-list">
+                <mat-chip class="warning-chip">{{ 'warning' | translate }}</mat-chip>
+              </mat-chip-list>
+              <label *ngIf="data.widget === 'TAT'"
+                ><span>{{ 'pre-warning-alarm' | translate }} ({{ 'optional' | translate }})</span>
+                <p class="optional">
+                  {{ 'minutes-before-caution' | translate }}
+                </p>
+              </label>
+            </label>
+            <div style="display: flex; align-items: center;">
+              <input
+                required
+                class="input-time-form"
+                type="number"
+                id="warningTargetH"
+                formControlName="warningTargetH"
+                placeholder="Hours"
+                min="0"
+                [ngClass]="{ 'red-border-error': widgetSetupForm.errors?.timeInvalid }"
+                (keypress)="omit_symbols($event)"
+              />
+              :
+              <input
+                required
+                #warningTargetM
+                style="margin-left: 10px"
+                class="input-time-form"
+                type="number"
+                id="warningTargetM"
+                formControlName="warningTargetM"
+                placeholder="Minutes"
+                [ngClass]="{ 'red-border-error': widgetSetupForm.errors?.timeInvalid }"
+                (blur)="updateTime('warningTargetH', 'warningTargetM', warningTargetM.value)"
+                min="0"
+                (keypress)="omit_symbols($event)"
+              />
+              <mat-divider vertical="true" class="alert-divider"></mat-divider>
+              <input
+                *ngIf="data.widget === 'TAT'"
+                [ngClass]="{ 'red-border-error': widgetSetupForm.errors?.preWarningInvalid }"
+                #warningAlertM
+                class="input-time-form"
+                type="number"
+                id="warningAlertM"
+                formControlName="warningAlertM"
+                placeholder="Minutes"
+                min="0"
+                (keypress)="omit_symbols($event)"
+              />
+              <br />
+            </div>
+            <div class="setup-errors">
+              <div *ngIf="widgetSetupForm.errors?.timeInvalid" class="error-message-form">
+                {{ 'warning-error' | translate }}
+              </div>
+              <div *ngIf="widgetSetupForm.errors?.preWarningInvalid" class="error-message-form">
+                {{ 'pre-warning-error' | translate }}
+              </div>
+            </div>
+            <mat-divider class="form-divider"></mat-divider>
+            <div class="lst-time-exceeded" *ngIf="data.widget === 'LST'">
+              <div>
+                <label class="label-form"
+                  >{{ 'exclude-from-list' | translate }}
+                  <p class="optional" style="margin-left:0">({{ 'optional' | translate }})</p></label
+                >
+                <input
+                  [ngClass]="{ 'red-border-error': widgetSetupForm.errors?.lstTimeExceedAlertInvalid }"
+                  #lstExcludeTime
+                  class="input-time-form"
+                  type="number"
+                  id="lstExcludeTime"
+                  formControlName="lstExcludeTime"
+                  placeholder="Hours"
+                  min="0"
+                  (keypress)="omit_symbols($event)"
+                />
+              </div>
+              <mat-divider [vertical]="true"></mat-divider>
+              <div>
+                <label class="label-form"
+                  >{{ 'delete-from-list' | translate }}
+                  <p class="optional" style="margin-left:0">({{ 'optional' | translate }})</p></label
+                >
+                <input
+                  [ngClass]="{
+                    'red-border-error':
+                      widgetSetupForm.errors?.lstTimeExceedAlertInvalid ||
+                      widgetSetupForm.errors?.lstTimeExceededDeleteInvalid
+                  }"
+                  #lstEraseTime
+                  class="input-time-form"
+                  type="number"
+                  id="lstEraseTime"
+                  formControlName="lstEraseTime"
+                  placeholder="Hours"
+                  min="0"
+                  (keypress)="omit_symbols($event)"
+                />
+              </div>
+            </div>
+            <div class="setup-errors">
+              <div *ngIf="widgetSetupForm.errors?.lstTimeExceedAlertInvalid" class="error-message-form">
+                {{ 'exclude-error' | translate }}
+              </div>
+              <div *ngIf="widgetSetupForm.errors?.lstTimeExceededDeleteInvalid" class="error-message-form">
+                {{ 'delete-error' | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="slides">
+            <p class="preview-text">{{ 'preview' | translate }}</p>
+            <slideshow [imageUrls]="imageUrlArray" height="340px" showDots="true" dotColor="#0066CC"></slideshow>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-toolbar class="action-bar mat-elevation-z4" *ngIf="!chooseType">
+  <div class="next-previous-wrapper">
+    <button
+      aria-labelledby="previous"
+      *ngIf="stepper.selectedIndex !== 0"
+      mat-button
+      class="previous-button"
+      (click)="goStepBack(stepper)"
+    >
+      {{ 'previous' | translate }}
+    </button>
+    <button
+      aria-labelledby="next"
+      *ngIf="stepper.selectedIndex !== 4"
+      mat-button
+      class="next-button"
+      (click)="goStepForward(stepper)"
+      [disabled]="!nextButtonEnabled"
+    >
+      {{ 'next' | translate }}
+    </button>
+    <button
+      aria-labelledby="confirm"
+      *ngIf="stepper.selectedIndex === 4"
+      mat-button
+      class="next-button"
+      [disabled]="!widgetSetupForm.valid"
+      (click)="saveParameters()"
+    >
+      {{ 'confirm-setup' | translate }}
+    </button>
+  </div>
+</mat-toolbar>

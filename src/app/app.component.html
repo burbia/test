@@ -1,0 +1,9 @@
+<div class="app-container">
+  <div id="overlay">
+    <h1>This size is not supported</h1>
+    <lottie-animation-view [options]="optionsLottie" [width]="'100%'" [height]="'100%'"></lottie-animation-view>
+  </div>
+  <main [@routerTransition]="getState(o)">
+    <router-outlet #o="outlet"></router-outlet>
+  </main>
+</div>

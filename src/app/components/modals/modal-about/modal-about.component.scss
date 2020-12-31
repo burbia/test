@@ -1,0 +1,33 @@
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  position: relative;
+  color: #0078c1;
+}
+
+.subtitle {
+  font-size: 16px;
+  position: relative;
+  .version {
+    font-weight: 600;
+  }
+  .about {
+    color: #00925b;
+    font-style: oblique;
+  }
+}
+
+img {
+  width: 25%;
+  position: relative;
+}
+
+.grid-container {
+  border: black 1px solid;
+  margin-left: 12px;
+  background-color: #ffffff;
+  height: 95%;
+  position: relative;
+  margin-right: 12px;
+  margin-top: 12px;
+}

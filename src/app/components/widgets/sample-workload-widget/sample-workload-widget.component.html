@@ -1,0 +1,299 @@
+<div class="gridster-item-content change-title">
+  <form [formGroup]="widgetTitleForm">
+    <input required id="inputTitle" formControlName="inputTitle" *ngIf="editTitle" autofocus (keyup.enter)="editTitle = false; updateTitle()"
+    #inputTitle [ngClass]="{'red-border-error': (titleForm.inputTitle.errors?.required)  && (titleForm.inputTitle.dirty || titleForm.inputTitle.touched)}">
+    <mat-icon *ngIf="editTitle" (click)="editTitle = false;">highlight_off</mat-icon>
+  </form>
+  </div>
+<div class="title">
+  <svg viewBox="0 0 160 24" preserveAspectRatio="xMidYMid meet">
+    <text x="0" y="15" fill="#333333" font-family="Roboto-Medium, Roboto" font-size="16" font-weight="500" *ngIf="!editTitle && configuration"
+    (click)="editTitle = true; focusInput();">{{configuration.title}}</text>
+  </svg>
+</div>
+<div class='gradient-background' #swBackground></div>
+<img class="icon" *ngIf="viewValues.totalSamples === 0" src="assets/icons/no_data.svg">
+<img class="icon" *ngIf="viewValues.totalSamples === viewValues.totalProcessed && viewValues.totalSamples !== 0" src="assets/icons/alarm_ok.svg">
+<img class="icon" *ngIf="viewValues.totalSamples !== 0 && viewValues.totalSamples !== viewValues.totalProcessed" src="assets/icons/lab.svg">
+<div class="sample-count">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71">
+    <defs>
+      <style>
+        .a {
+          fill: #efefef;
+        }
+
+        .b {
+          fill: #06c;
+          font-size: 20px;
+          font-family: Roboto-Medium, Roboto;
+          font-weight: 500;
+        }
+
+        .c,
+        .f {
+          fill: #737373;
+        }
+
+        .c {
+          font-size: 10px;
+          font-family: Roboto-Regular, Roboto;
+        }
+
+        .d {
+          opacity: 0;
+        }
+
+        .e {
+          fill: rgba(0, 0, 0, 0.54);
+        }
+
+        .g {
+          fill: #fafafa;
+        }
+
+        .h,
+        .i {
+          stroke: none;
+        }
+
+        .i {
+          fill: #fff;
+        }
+      </style>
+    </defs>
+    <g transform="translate(-28 -51)">
+      <g class="a" transform="translate(28 51)">
+        <path class="h"
+          d="M 35.5 69 C 30.97664451599121 69 26.58965492248535 68.11454772949219 22.46089935302734 66.36822509765625 C 18.47197723388672 64.68105316162109 14.88914489746094 62.26530075073242 11.81192207336426 59.18807601928711 C 8.734700202941895 56.11085510253906 6.318944454193115 52.52802276611328 4.631777763366699 48.53910064697266 C 2.88545560836792 44.41034317016602 2 40.02335739135742 2 35.5 C 2 30.97664451599121 2.88545560836792 26.58965492248535 4.631777763366699 22.46089935302734 C 6.318944454193115 18.47197723388672 8.734700202941895 14.88914489746094 11.81192207336426 11.81192207336426 C 14.88914489746094 8.734700202941895 18.47197723388672 6.318944454193115 22.46089935302734 4.631777763366699 C 26.58965492248535 2.88545560836792 30.97664451599121 2 35.5 2 C 40.02335739135742 2 44.41034317016602 2.88545560836792 48.53910064697266 4.631777763366699 C 52.52802276611328 6.318944454193115 56.11085510253906 8.734700202941895 59.18807601928711 11.81192207336426 C 62.26530075073242 14.88914489746094 64.68105316162109 18.47197723388672 66.36822509765625 22.46089935302734 C 68.11454772949219 26.58965492248535 69 30.97664451599121 69 35.5 C 69 40.02335739135742 68.11454772949219 44.41034317016602 66.36822509765625 48.53910064697266 C 64.68105316162109 52.52802276611328 62.26530075073242 56.11085510253906 59.18807601928711 59.18807601928711 C 56.11085510253906 62.26530075073242 52.52802276611328 64.68105316162109 48.53910064697266 66.36822509765625 C 44.41034317016602 68.11454772949219 40.02335739135742 69 35.5 69 Z" />
+        <path class="i"
+          d="M 35.5 4 C 31.24576187133789 4 27.12089920043945 4.832298278808594 23.2400016784668 6.473785400390625 C 19.48948669433594 8.060123443603516 16.12032318115234 10.33193588256836 13.22613906860352 13.22613906860352 C 10.33193588256836 16.12032318115234 8.060123443603516 19.48948669433594 6.473785400390625 23.2400016784668 C 4.832298278808594 27.12089920043945 4 31.24576187133789 4 35.5 C 4 39.75423812866211 4.832298278808594 43.87910079956055 6.473785400390625 47.76000213623047 C 8.060123443603516 51.51051330566406 10.33193588256836 54.87967681884766 13.22613906860352 57.77386474609375 C 16.12032318115234 60.66806030273438 19.48948669433594 62.93987274169922 23.2400016784668 64.52621459960938 C 27.12089920043945 66.16770172119141 31.24576187133789 67 35.5 67 C 39.75423812866211 67 43.87910079956055 66.16770172119141 47.76000213623047 64.52621459960938 C 51.51051330566406 62.93987274169922 54.87967681884766 60.66806030273438 57.77386474609375 57.77386474609375 C 60.66806030273438 54.87967681884766 62.93987274169922 51.51051330566406 64.52621459960938 47.76000213623047 C 66.16770172119141 43.87910079956055 67 39.75423812866211 67 35.5 C 67 31.24576187133789 66.16770172119141 27.12089920043945 64.52621459960938 23.2400016784668 C 62.93987274169922 19.48948669433594 60.66806030273438 16.12032318115234 57.77386474609375 13.22613906860352 C 54.87967681884766 10.33193588256836 51.51051330566406 8.060123443603516 47.76000213623047 6.473785400390625 C 43.87910079956055 4.832298278808594 39.75423812866211 4 35.5 4 M 35.5 0 C 55.10611343383789 0 71 15.89388656616211 71 35.5 C 71 55.10611343383789 55.10611343383789 71 35.5 71 C 15.89388656616211 71 0 55.10611343383789 0 35.5 C 0 15.89388656616211 15.89388656616211 0 35.5 0 Z" />
+      </g>
+      <g transform="translate(9.832 31.445)"><text text-anchor="middle" class="b" transform="translate(54.168 63.001)">
+          <tspan x="0" y="0">{{viewValues.totalProcessing}}</tspan>
+        </text><text class="c" text-anchor="middle" transform="translate(66.168 76.001)">
+          <tspan x="-13.335" y="0">/{{viewValues.totalSamples}}</tspan>
+        </text>
+      </g>
+    </g>
+  </svg>
+</div>
+<div class="percentage-chips">
+    <div class="chip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 20">
+          <defs>
+            <style>
+              .z {
+                fill: #BABABA;
+              }
+            </style>
+          </defs>
+          <g transform="translate(0.373 -0.385)">
+            <g transform="translate(0)">
+              <g transform="translate(37.627 20.385) rotate(180)">
+                <path class="z" d="M10,0H38a0,0,0,0,1,0,0V20a0,0,0,0,1,0,0H10A10,10,0,0,1,0,10v0A10,10,0,0,1,10,0Z"
+                  transform="translate(38 20) rotate(180)" />
+              </g><text direction="rtl" class="y" transform="translate(43.627 15.385)">
+                <tspan x="-8" y="0">{{viewValues.percentageStart | number: '1.0-0'}}%</tspan>
+              </text>
+            </g>
+          </g>
+        </svg>
+      </div>
+  
+  <div class="chip">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 20">
+      <linearGradient id="sw-gradient" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#47D6EB" />
+        <stop offset="50%" stop-color="#058CCF" />
+        <stop offset="100%" stop-color="#058CCF" />
+      </linearGradient>
+      <defs>
+        <style>
+          .w {
+            fill: url(#sw-gradient);
+          }
+        </style>
+      </defs>
+      <g transform="translate(0.373 -0.385)">
+        <g transform="translate(0)">
+          <g transform="translate(37.627 20.385) rotate(180)">
+            <path class="w" d="M10,0H38a0,0,0,0,1,0,0V20a0,0,0,0,1,0,0H10A10,10,0,0,1,0,10v0A10,10,0,0,1,10,0Z"
+              transform="translate(38 20) rotate(180)" />
+          </g><text class="y" direction="rtl" transform="translate(43.627 15.385)">
+            <tspan x="-8" y="0">{{viewValues.percentageProcessing | number: '1.0-0'}}%</tspan>
+          </text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="chip">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 20">
+        <defs>
+          <style>
+            .x {
+              fill: #00875a;
+            }
+  
+            .y {
+              fill: #fff;
+              font-size: 14px;
+              font-family: Roboto-Medium, Roboto;
+              font-weight: 500;
+            }
+          </style>
+        </defs>
+        <g transform="translate(0.373 -0.385)">
+          <g transform="translate(0)">
+            <g transform="translate(37.627 20.385) rotate(180)">
+              <path class="x" d="M10,0H38a0,0,0,0,1,0,0V20a0,0,0,0,1,0,0H10A10,10,0,0,1,0,10v0A10,10,0,0,1,10,0Z"
+                transform="translate(38 20) rotate(180)" />
+            </g><text direction="rtl" class="y" transform="translate(43.627 15.385)">
+              <tspan x="-8" y="0">{{viewValues.percentageProcessed | number: '1.0-0'}}%</tspan>
+            </text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  
+
+</div>
+<div class='valuesPie' #values></div>
+
+<div class="detail" *ngIf="oneXversion">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 154 164.764">
+    <defs>
+      <style>
+        .aa,
+        .ee,
+        .ii {
+          fill: none;
+        }
+
+        .aa {
+          stroke: #d3d3d3;
+          stroke-linecap: round;
+        }
+
+        .bb {
+          fill: #696969;
+          font-family: Roboto-Regular, Roboto;
+        }
+
+        .bb,
+        .dd {
+          font-size: 12px;
+        }
+
+        .cc {
+          fill: url(#a);
+        }
+
+        .dd,
+        .hh {
+          fill: #fff;
+        }
+
+        .dd {
+          font-family: Roboto-Medium, Roboto;
+          font-weight: 500;
+        }
+
+        .ee {
+          stroke: #058ccf;
+        }
+
+        .ff {
+          fill: #bababa;
+        }
+
+        .gg {
+          fill: #00875a;
+          stroke: rgba(0, 143, 6, 0.5);
+        }
+
+        .jj {
+          fill: #008f06;
+        }
+
+        .kk {
+          stroke: none;
+        }
+      </style>
+      <linearGradient id="a" x1="0.5" y1="-0.139" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+        <stop offset="0" stop-color="#058ccf" />
+        <stop offset="1" stop-color="#47d6eb" />
+      </linearGradient>
+    </defs>
+    <g transform="translate(-15252 -17837)">
+      <line class="aa" x2="145" transform="translate(15252.5 17864.5)" />
+      <g transform="translate(10797 65.385)"><text class="bb" transform="translate(4455 17821)">
+          <tspan x="0" y="0">{{'processing' | translate}}</tspan>
+        </text>
+        <rect class="cc" width="46.399" height="19.763" rx="9.882"
+          transform="translate(4600.787 17826.379) rotate(180)" /><text class="dd" text-anchor="middle" transform="translate(4605 17821)">
+          <tspan x="-27.281" y="0">{{viewValues.totalProcessing}}</tspan>
+        </text></g>
+      <g transform="translate(10797 116.385)"><text class="bb" transform="translate(4455 17821)">
+          <tspan x="0" y="0">{{'pending-tech-val' | translate}}</tspan>
+        </text>
+        <g class="ee" transform="translate(4600.787 17826.379) rotate(180)">
+          <rect class="kk" width="46.399" height="19.763" rx="9.882" />
+          <rect class="ii" x="0.5" y="0.5" width="46.399" height="18.763" rx="9.382" />
+        </g><text class="bb" text-anchor="middle" transform="translate(4597 17821)">
+          <tspan x="-20.268" y="0">{{viewValues.pendingTecValCount}}</tspan>
+        </text>
+      </g>
+      <g transform="translate(10797 30.385)"><text class="bb" transform="translate(4455 17821)">
+          <tspan x="0" y="0">{{'pending' | translate}}</tspan>
+        </text>
+        <rect class="ff" width="46.399" height="19.763" rx="9.882"
+          transform="translate(4600.787 17826.379) rotate(180)" /><text class="dd" text-anchor="middle" transform="translate(4605 17821)">
+          <tspan x="-27.281" y="0">{{viewValues.totalStart}}</tspan>
+        </text></g>
+      <line class="aa" x2="145" transform="translate(15252.5 17976.5)" />
+      <g transform="translate(0 28)">
+        <g transform="translate(10797 62.385)"><text class="bb" transform="translate(4455 17821)">
+            <tspan x="0" y="0">{{'pending-results' | translate}}</tspan>
+          </text></g>
+        <g class="ee" transform="translate(15397.787 17889.764) rotate(180)">
+          <rect class="kk" width="46.399" height="19.763" rx="9.882" />
+          <rect class="ii" x="0.5" y="0.5" width="46.399" height="18.763" rx="9.382" />
+        </g><text class="bb" text-anchor="middle" transform="translate(15394 17884.385)">
+          <tspan x="-20.268" y="0">{{viewValues.pendingResultsCount}}</tspan>
+        </text>
+      </g>
+      <g transform="translate(10797 175.385)"><text class="bb" transform="translate(4455 17821)">
+          <tspan x="0" y="0">{{'completed' | translate}}</tspan>
+        </text>
+        <g class="gg" transform="translate(4600.787 17826.379) rotate(180)">
+          <rect class="kk" width="63.399" height="19.763" rx="9.882" />
+          <rect class="ii" x="0.5" y="0.5" width="62.399" height="18.763" rx="9.382" />
+        </g><text class="dd" text-anchor="middle" transform="translate(4582 17821)">
+          <tspan x="-20.461" y="0">{{viewValues.totalProcessed}}</tspan>
+        </text>
+        <g transform="translate(3906 17455.615)">
+          <circle class="hh" cx="8" cy="8" r="8" transform="translate(677 353)" />
+          <g transform="translate(676 352)">
+            <path class="ii" d="M0,0H18V18H0ZM0,0H18V18H0Z" />
+            <path class="jj" d="M13.038,6.221,8.052,11.207,5.336,8.5,4.27,9.565l3.783,3.783L14.1,7.3Z"
+              transform="translate(-0.565 -0.565)" />
+          </g>
+        </g>
+      </g>
+      <g transform="translate(10797 142.385)"><text class="bb" transform="translate(4455 17821)">
+          <tspan x="0" y="0">{{'pending-med-val' | translate}}</tspan>
+        </text>
+        <g class="ee" transform="translate(4600.787 17826.379) rotate(180)">
+          <rect class="kk" width="46.399" height="19.763" rx="9.882" />
+          <rect class="ii" x="0.5" y="0.5" width="46.399" height="18.763" rx="9.382" />
+        </g><text class="bb" text-anchor="middle" transform="translate(4597 17821)">
+          <tspan x="-20.268" y="0">{{viewValues.pendingMedValCount}}</tspan>
+        </text>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<div class='no-data' #loader></div>

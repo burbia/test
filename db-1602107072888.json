@@ -1,0 +1,1553 @@
+{
+  "license": {
+    "status": "DEMO_PERIOD",
+    "validationResult": "NO_KEY",
+    "dueDate": "2020-08-24T10:09:01.174892500Z"
+  },
+  "resetnow": {},
+  "dashboardReset": {
+    "dashboardId": "35cb7328-5920-4184-8cab-ed014d323fcb",
+    "tenantId": "leonidas",
+    "title": "PULSE?ERROR",
+    "creationDate": "2020-08-17T08:38:01.944+0000",
+    "resetTime": "",
+    "widgets": [],
+    "changes": [],
+    "deletedWidgets": [
+      {
+        "id": "6a707b39-1c3e-4faf-9d9c-afa78648b463",
+        "title": "HOST2",
+        "deleteDate": "2020-08-17T10:33:34.302+0000",
+        "code": "CNS",
+        "cols": 1,
+        "rows": 1
+      },
+      {
+        "id": "c2c43273-fc15-46e1-a498-052ceb5ff99c",
+        "title": "INSTRUMENT",
+        "deleteDate": "2020-09-02T13:20:30.166+0000",
+        "code": "CNS",
+        "cols": 1,
+        "rows": 1
+      },
+      {
+        "id": "244b20e9-9643-4248-b91b-a3f82d44396a",
+        "title": "Copy_INSTRUMENT",
+        "deleteDate": "2020-09-02T13:20:27.725+0000",
+        "code": "CNS",
+        "cols": 1,
+        "rows": 1
+      }
+    ]
+  },
+  "resetdashboard": {
+    "resetTime": "12:43"
+  },
+  "dashboard": [
+    {
+      "dashboardId": "26bdc658-64d1-43a0-a24b-4886d5e48708",
+      "tenantId": "leonidas",
+      "title": "events",
+      "creationDate": "2020-07-24T08:38:01.944+0000"
+    }
+  ],
+  "kpis": [
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "widgetId": "29ab75a5-600b-419b-a2c2-3f0b9b6518f2"
+      },
+      "values": {
+        "tatValue": "null"
+      },
+      "time": 1599596914.208
+    },
+    {
+      "id": "4c72efb7-1184-4354-a308-df1072863f66",
+      "eventType": "DashboardResetEvent",
+      "eventTime": 1599600203.018,
+      "tenantId": "leonidas",
+      "dashboardId": "078c4e08-12ee-4c40-8c73-f6c2d5b0d213",
+      "attempts": 1,
+      "totalAttempts": 3,
+      "failedWidgets": []
+    },
+    {
+      "id": "36f0b2b8-d104-4c8a-b69f-5286d8900aab",
+      "eventType": "DashboardResetRetried",
+      "eventTime": 1600343222.231,
+      "tenantId": "leonidas",
+      "attempts": 1,
+      "totalAttempts": 3,
+      "dashboardId": "078c4e08-12ee-4c40-8c73-f6c2d5b0d213",
+      "failedWidgets": [
+        "c0106ba6-6ea8-4270-bdbf-e4950cfdb263",
+        "ccc24f73-01c4-4a69-84e9-e837e4d7ce34",
+        "70d91a36-e9e6-44ac-8462-76c33041544c"
+      ]
+    },
+    {
+      "id": "9a4aab8f-f1b3-4401-b846-facc8b2bd451",
+      "eventType": "DashboardResetFailed",
+      "eventTime": 1600359960.055,
+      "tenantId": "leonidas",
+      "attempts": 3,
+      "totalAttempts": 3,
+      "dashboardId": "078c4e08-12ee-4c40-8c73-f6c2d5b0d213",
+      "failedWidgets": [
+        "c0106ba6-6ea8-4270-bdbf-e4950cfdb263",
+        "ccc24f73-01c4-4a69-84e9-e837e4d7ce34",
+        "70d91a36-e9e6-44ac-8462-76c33041544c"
+      ]
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "widgetId": "bfc8b7a9-3540-482c-b5fa-5530ea7c2205"
+      },
+      "values": {
+        "pendingCount": "6",
+        "processingCount": "1",
+        "pendingMedValCount": "2",
+        "completedCount": "5",
+        "pendingResultsCount": "0",
+        "pendingTecValCount": "0"
+      },
+      "time": 1593443043.441
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "widgetId": "bfedd72d-4984-4693-9a48-01b4aaff0796"
+      },
+      "values": {
+        "tatValue": 1593.41
+      },
+      "time": 1593443043.441
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "widgetId": "e6dc8400-16b2-4719-961e-96b95f66b703"
+      },
+      "values": {
+        "tatValue": 159346.41
+      },
+      "time": 1593443043.441
+    }
+  ],
+  "hostconnections": [
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "0"
+      },
+      "connectionName": "Connection Name A0",
+      "hostName": "Host Name A1 0"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "1"
+      },
+      "connectionName": "Connection Name A1",
+      "hostName": "Host Name A1 1"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "2"
+      },
+      "connectionName": "Connection Name A2",
+      "hostName": "Host Name A1 2"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "3"
+      },
+      "connectionName": "Connection Name A3",
+      "hostName": "Host Name A1 3"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "4"
+      },
+      "connectionName": "Connection Name A4",
+      "hostName": "Host Name A1 4"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "5"
+      },
+      "connectionName": "Connection Name A5",
+      "hostName": "Host Name A1 5"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "6"
+      },
+      "connectionName": "Connection Name A6",
+      "hostName": "Host Name A1 6"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "7"
+      },
+      "connectionName": "Connection Name A7",
+      "hostName": "Host Name A1 7"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "8"
+      },
+      "connectionName": "Connection Name A8",
+      "hostName": "Host Name A1 8"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "9"
+      },
+      "connectionName": "Connection Name A9",
+      "hostName": "Host Name A1 9"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "10"
+      },
+      "connectionName": "Connection Name A10",
+      "hostName": "Host Name A1 10"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "11"
+      },
+      "connectionName": "Connection Name A11",
+      "hostName": "Host Name A1 11"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "12"
+      },
+      "connectionName": "Connection Name A12",
+      "hostName": "Host Name A1 12"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "13"
+      },
+      "connectionName": "Connection Name A13",
+      "hostName": "Host Name A1 13"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "14"
+      },
+      "connectionName": "Connection Name A14",
+      "hostName": "Host Name A1 14"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "15"
+      },
+      "connectionName": "Connection Name A15",
+      "hostName": "Host Name A1 15"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "16"
+      },
+      "connectionName": "Connection Name A16",
+      "hostName": "Host Name A1 16"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "17"
+      },
+      "connectionName": "Connection Name A17",
+      "hostName": "Host Name A1 17"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "18"
+      },
+      "connectionName": "Connection Name A18",
+      "hostName": "Host Name A1 18"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "19"
+      },
+      "connectionName": "Connection Name A19",
+      "hostName": "Host Name A1 19"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "20"
+      },
+      "connectionName": "Connection Name A20",
+      "hostName": "Host Name A1 20"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "21"
+      },
+      "connectionName": "Connection Name A21",
+      "hostName": "Host Name A1 21"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "22"
+      },
+      "connectionName": "Connection Name A22",
+      "hostName": "Host Name A1 22"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "23"
+      },
+      "connectionName": "Connection Name A23",
+      "hostName": "Host Name A1 23"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "24"
+      },
+      "connectionName": "Connection Name A24",
+      "hostName": "Host Name A1 24"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "25"
+      },
+      "connectionName": "Connection Name A25",
+      "hostName": "Host Name A1 25"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "26"
+      },
+      "connectionName": "Connection Name A26",
+      "hostName": "Host Name A1 26"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "27"
+      },
+      "connectionName": "Connection Name A27",
+      "hostName": "Host Name A1 27"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "28"
+      },
+      "connectionName": "Connection Name A28",
+      "hostName": "Host Name A1 28"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "29"
+      },
+      "connectionName": "Connection Name A29",
+      "hostName": "Host Name A1 29"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "30"
+      },
+      "connectionName": "Connection Name A30",
+      "hostName": "Host Name A1 30"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "31"
+      },
+      "connectionName": "Connection Name A31",
+      "hostName": "Host Name A1 31"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "32"
+      },
+      "connectionName": "Connection Name A32",
+      "hostName": "Host Name A1 32"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "33"
+      },
+      "connectionName": "Connection Name A33",
+      "hostName": "Host Name A1 33"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "34"
+      },
+      "connectionName": "Connection Name A34",
+      "hostName": "Host Name A1 34"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "35"
+      },
+      "connectionName": "Connection Name A35",
+      "hostName": "Host Name A1 35"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "36"
+      },
+      "connectionName": "Connection Name A36",
+      "hostName": "Host Name A1 36"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "37"
+      },
+      "connectionName": "Connection Name A37",
+      "hostName": "Host Name A1 37"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "38"
+      },
+      "connectionName": "Connection Name A38",
+      "hostName": "Host Name A1 38"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "39"
+      },
+      "connectionName": "Connection Name A39",
+      "hostName": "Host Name A1 39"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "40"
+      },
+      "connectionName": "Connection Name A40",
+      "hostName": "Host Name A1 40"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "41"
+      },
+      "connectionName": "Connection Name A41",
+      "hostName": "Host Name A1 41"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "42"
+      },
+      "connectionName": "Connection Name A42",
+      "hostName": "Host Name A1 42"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "43"
+      },
+      "connectionName": "Connection Name A43",
+      "hostName": "Host Name A1 43"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "44"
+      },
+      "connectionName": "Connection Name A44",
+      "hostName": "Host Name A1 44"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "45"
+      },
+      "connectionName": "Connection Name A45",
+      "hostName": "Host Name A1 45"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "46"
+      },
+      "connectionName": "Connection Name A46",
+      "hostName": "Host Name A1 46"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "47"
+      },
+      "connectionName": "Connection Name A47",
+      "hostName": "Host Name A1 47"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "48"
+      },
+      "connectionName": "Connection Name A48",
+      "hostName": "Host Name A1 48"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "49"
+      },
+      "connectionName": "Connection Name A49",
+      "hostName": "Host Name A1 49"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "50"
+      },
+      "connectionName": "Connection Name A50",
+      "hostName": "Host Name A1 50"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "51"
+      },
+      "connectionName": "Connection Name A51",
+      "hostName": "Host Name A1 51"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "52"
+      },
+      "connectionName": "Connection Name A52",
+      "hostName": "Host Name A1 52"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "53"
+      },
+      "connectionName": "Connection Name A53",
+      "hostName": "Host Name A1 53"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "54"
+      },
+      "connectionName": "Connection Name A54",
+      "hostName": "Host Name A1 54"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "55"
+      },
+      "connectionName": "Connection Name A55",
+      "hostName": "Host Name A1 55"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "56"
+      },
+      "connectionName": "Connection Name A56",
+      "hostName": "Host Name A1 56"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "57"
+      },
+      "connectionName": "Connection Name A57",
+      "hostName": "Host Name A1 57"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "58"
+      },
+      "connectionName": "Connection Name A58",
+      "hostName": "Host Name A1 58"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "59"
+      },
+      "connectionName": "Connection Name A59",
+      "hostName": "Host Name A1 59"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "60"
+      },
+      "connectionName": "Connection Name A60",
+      "hostName": "Host Name A1 60"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "61"
+      },
+      "connectionName": "Connection Name A61",
+      "hostName": "Host Name A1 61"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "62"
+      },
+      "connectionName": "Connection Name A62",
+      "hostName": "Host Name A1 62"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "63"
+      },
+      "connectionName": "Connection Name A63",
+      "hostName": "Host Name A1 63"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "64"
+      },
+      "connectionName": "Connection Name A64",
+      "hostName": "Host Name A1 64"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "65"
+      },
+      "connectionName": "Connection Name A65",
+      "hostName": "Host Name A1 65"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "66"
+      },
+      "connectionName": "Connection Name A66",
+      "hostName": "Host Name A1 66"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "67"
+      },
+      "connectionName": "Connection Name A67",
+      "hostName": "Host Name A1 67"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "68"
+      },
+      "connectionName": "Connection Name A68",
+      "hostName": "Host Name A1 68"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "69"
+      },
+      "connectionName": "Connection Name A69",
+      "hostName": "Host Name A1 69"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "70"
+      },
+      "connectionName": "Connection Name A70",
+      "hostName": "Host Name A1 70"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "71"
+      },
+      "connectionName": "Connection Name A71",
+      "hostName": "Host Name A1 71"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "72"
+      },
+      "connectionName": "Connection Name A72",
+      "hostName": "Host Name A1 72"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "73"
+      },
+      "connectionName": "Connection Name A73",
+      "hostName": "Host Name A1 73"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "74"
+      },
+      "connectionName": "Connection Name A74",
+      "hostName": "Host Name A1 74"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "75"
+      },
+      "connectionName": "Connection Name A75",
+      "hostName": "Host Name A1 75"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "76"
+      },
+      "connectionName": "Connection Name A76",
+      "hostName": "Host Name A1 76"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "77"
+      },
+      "connectionName": "Connection Name A77",
+      "hostName": "Host Name A1 77"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "78"
+      },
+      "connectionName": "Connection Name A78",
+      "hostName": "Host Name A1 78"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "79"
+      },
+      "connectionName": "Connection Name A79",
+      "hostName": "Host Name A1 79"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "80"
+      },
+      "connectionName": "Connection Name A80",
+      "hostName": "Host Name A1 80"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "81"
+      },
+      "connectionName": "Connection Name A81",
+      "hostName": "Host Name A1 81"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "82"
+      },
+      "connectionName": "Connection Name A82",
+      "hostName": "Host Name A1 82"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "83"
+      },
+      "connectionName": "Connection Name A83",
+      "hostName": "Host Name A1 83"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "84"
+      },
+      "connectionName": "Connection Name A84",
+      "hostName": "Host Name A1 84"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "85"
+      },
+      "connectionName": "Connection Name A85",
+      "hostName": "Host Name A1 85"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "86"
+      },
+      "connectionName": "Connection Name A86",
+      "hostName": "Host Name A1 86"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "87"
+      },
+      "connectionName": "Connection Name A87",
+      "hostName": "Host Name A1 87"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "88"
+      },
+      "connectionName": "Connection Name A88",
+      "hostName": "Host Name A1 88"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "89"
+      },
+      "connectionName": "Connection Name A89",
+      "hostName": "Host Name A1 89"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "90"
+      },
+      "connectionName": "Connection Name A90",
+      "hostName": "Host Name A1 90"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "91"
+      },
+      "connectionName": "Connection Name A91",
+      "hostName": "Host Name A1 91"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "92"
+      },
+      "connectionName": "Connection Name A92",
+      "hostName": "Host Name A1 92"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "93"
+      },
+      "connectionName": "Connection Name A93",
+      "hostName": "Host Name A1 93"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "94"
+      },
+      "connectionName": "Connection Name A94",
+      "hostName": "Host Name A1 94"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "95"
+      },
+      "connectionName": "Connection Name A95",
+      "hostName": "Host Name A1 95"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "96"
+      },
+      "connectionName": "Connection Name A96",
+      "hostName": "Host Name A1 96"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "97"
+      },
+      "connectionName": "Connection Name A97",
+      "hostName": "Host Name A1 97"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "98"
+      },
+      "connectionName": "Connection Name A98",
+      "hostName": "Host Name A1 98"
+    },
+    {
+      "hostConnectionId": {
+        "tenantId": "leonidas",
+        "id": "99"
+      },
+      "connectionName": "Connection Name A99",
+      "hostName": "Host Name A1 99"
+    }
+  ],
+  "parents": [
+    {
+      "groupId": "SG.1",
+      "testGroupName": "Internal lab."
+    }
+  ],
+  "organisations": [
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "organisationId": "2",
+        "organisationCode": "2"
+      },
+      "organisationDescription": "Origin2"
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "organisationId": "3",
+        "organisationCode": "3"
+      },
+      "organisationDescription": "Origin3"
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "organisationId": "4",
+        "organisationCode": "4"
+      },
+      "organisationDescription": "Origin4"
+    }
+  ],
+  "testinstruments": [
+    {
+      "tenantId": "leonidas",
+      "testId": "1",
+      "code": "1",
+      "name": "Test 1"
+    }
+  ],
+  "instruments": [
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||1"
+      },
+      "instrumentName": "C6000 Haven",
+      "instrumentModel": "Cobas C6000",
+      "instrumentType": "INSTRUMENT",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||2"
+      },
+      "instrumentName": "C6000 Daniel",
+      "instrumentModel": "Cobas C6000",
+      "instrumentType": "INSTRUMENT",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||3"
+      },
+      "instrumentName": "C6000 Sophia",
+      "instrumentModel": "Cobas C6000",
+      "instrumentType": "INSTRUMENT",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||4"
+      },
+      "instrumentName": "Instrument 17",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||5"
+      },
+      "instrumentName": "Instrument 27",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||6"
+      },
+      "instrumentName": "Instrument 27",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||7"
+      },
+      "instrumentName": "Instrument 14",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||8"
+      },
+      "instrumentName": "Instrument 20",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||9"
+      },
+      "instrumentName": "Instrument 24",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||10"
+      },
+      "instrumentName": "Instrument 10",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||11"
+      },
+      "instrumentName": "Instrument 10",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||12"
+      },
+      "instrumentName": "Instrument 10",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||13"
+      },
+      "instrumentName": "Instrument 10",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||14"
+      },
+      "instrumentName": "Instrument 10",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "452||15"
+      },
+      "instrumentName": "Instrument 44",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "572||1"
+      },
+      "instrumentName": "c8000-2",
+      "instrumentModel": "Cobas C8000",
+      "instrumentType": "INSTRUMENT",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "572||2"
+      },
+      "instrumentName": "c8000-1",
+      "instrumentModel": "Cobas C8000",
+      "instrumentType": "INSTRUMENT",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "572||3"
+      },
+      "instrumentName": "c8000-1",
+      "instrumentModel": "Cobas C8000",
+      "instrumentType": "INSTRUMENT",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||1"
+      },
+      "instrumentName": "Instrument 11",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||2"
+      },
+      "instrumentName": "p612",
+      "instrumentModel": "RSA Dynamic Interface",
+      "instrumentType": "PRE-ANALYTIC",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||3"
+      },
+      "instrumentName": "p471",
+      "instrumentModel": "RSA Dynamic Interface",
+      "instrumentType": "PRE-ANALYTIC",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||4"
+      },
+      "instrumentName": "Instrument 15",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||5"
+      },
+      "instrumentName": "Instrument 15",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||6"
+      },
+      "instrumentName": "Instrument 18",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||7"
+      },
+      "instrumentName": "Instrument 18",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||8"
+      },
+      "instrumentName": "Instrument 25",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||9"
+      },
+      "instrumentName": "Instrument 18",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||10"
+      },
+      "instrumentName": "Instrument 18",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||11"
+      },
+      "instrumentName": "Instrument 25",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||12"
+      },
+      "instrumentName": "Instrument 18",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||13"
+      },
+      "instrumentName": "Instrument 25",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "579||14"
+      },
+      "instrumentName": "Instrument 21",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "636||1"
+      },
+      "instrumentName": "COBAS P701",
+      "instrumentModel": "Cobas P 501-701",
+      "instrumentType": "POST-ANALYTIC",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "636||2"
+      },
+      "instrumentName": "COBAS P701",
+      "instrumentModel": "Cobas P 501-701",
+      "instrumentType": "POST-ANALYTIC",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "636||3"
+      },
+      "instrumentName": "COBAS P701",
+      "instrumentModel": "Cobas P 501-701",
+      "instrumentType": "POST-ANALYTIC",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "636||4"
+      },
+      "instrumentName": "COBAS P701",
+      "instrumentModel": "Cobas P 501-701",
+      "instrumentType": "POST-ANALYTIC",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "636||5"
+      },
+      "instrumentName": "COBAS P701",
+      "instrumentModel": "Cobas P 501-701",
+      "instrumentType": "POST-ANALYTIC",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||1"
+      },
+      "instrumentName": "NOT WORKING - C8100 TT",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||2"
+      },
+      "instrumentName": "C8100",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "PRE-ANALYTIC",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||3"
+      },
+      "instrumentName": "cobas 8100-3",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||4"
+      },
+      "instrumentName": "Instrument 16",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||5"
+      },
+      "instrumentName": "Instrument 40",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||6"
+      },
+      "instrumentName": "Instrument 13",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||7"
+      },
+      "instrumentName": "Instrument 19",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||8"
+      },
+      "instrumentName": "Instrument 29",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||9"
+      },
+      "instrumentName": "Instrument 23",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "713||10"
+      },
+      "instrumentName": "Instrument 26",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||1"
+      },
+      "instrumentName": "Instrument 33",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||2"
+      },
+      "instrumentName": "Instrument 43",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||3"
+      },
+      "instrumentName": "Instrument 33",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||4"
+      },
+      "instrumentName": "Instrument 43",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||5"
+      },
+      "instrumentName": "Instrument 33",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||6"
+      },
+      "instrumentName": "Instrument 43",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||7"
+      },
+      "instrumentName": "Instrument 33",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||88"
+      },
+      "instrumentName": "Instrument 43",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||9"
+      },
+      "instrumentName": "Instrument 33",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    },
+    {
+      "id": {
+        "tenantId": "leonidas",
+        "instrumentId": "715||10"
+      },
+      "instrumentName": "Instrument 43",
+      "instrumentModel": "cobas 8100",
+      "instrumentType": "UNKNOWN",
+      "instrumentStatus": true
+    }
+  ]
+}
